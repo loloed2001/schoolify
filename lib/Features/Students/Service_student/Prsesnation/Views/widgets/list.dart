@@ -22,12 +22,12 @@ List<Page> pages = [
   Page(title: 'Lesson', routeName: '/lesson'),
 ];
 List catname = [
-  AppLocalizations.of(context as BuildContext)!.mark,
-  AppLocalizations.of(context as BuildContext)!.inschool,
-  AppLocalizations.of(context as BuildContext)!.note,
-  AppLocalizations.of(context as BuildContext)!.exampro,
-  AppLocalizations.of(context as BuildContext)!.weekpro,
-  AppLocalizations.of(context as BuildContext)!.lesson
+  "mark",
+  "inschool",
+ "note",
+ "exam",
+  "week",
+ "lesson"
 ];
 List<Color> catcolors = [
   Color(0xffffcf2f),
