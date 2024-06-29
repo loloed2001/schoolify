@@ -49,7 +49,7 @@ class _HomeState extends State<Home> {
                   child: Column(
                     children: [
                       GridView.builder(
-                        itemCount: catname.length,
+                        itemCount: name.length,
                         shrinkWrap: true,
                         physics: NeverScrollableScrollPhysics(),
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -66,7 +66,7 @@ class _HomeState extends State<Home> {
                                   height: 60,
                                   width: 60,
                                   decoration: BoxDecoration(
-                                      color: catcolors[index],
+                                      color: ccolors[index],
                                       shape: BoxShape.circle),
                                   child: Center(
                                     child: caticon[index],
@@ -74,8 +74,7 @@ class _HomeState extends State<Home> {
                                 ),
                               ),
                               SizedBox(height: 10),
-                              Text(
-                                catname[index],
+                              Text(getTitle(context,index),
                                 style: TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.w600,

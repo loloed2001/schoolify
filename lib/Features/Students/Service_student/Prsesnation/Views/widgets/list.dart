@@ -1,4 +1,4 @@
-import 'dart:js';
+
 
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -21,15 +21,15 @@ List<Page> pages = [
   Page(title: 'Week Program', routeName: '/weekprg'),
   Page(title: 'Lesson', routeName: '/lesson'),
 ];
-List catname = [
-  "mark",
-  "inschool",
- "note",
- "exam",
-  "week",
- "lesson"
+List name = [
+  "العلامات",
+  "الحضور",
+ "الملاحظات",
+ "برنامج المذاكرات",
+  "برنامج الاسبوع",
+ "دروسي"
 ];
-List<Color> catcolors = [
+List<Color> ccolors = [
   Color(0xffffcf2f),
   Color(0xff6fe08d),
   Color(0xff61bdfd),
@@ -78,30 +78,15 @@ List<String> itemlist = [
   "الخامس",
   "السادس",
 ];
-//  Page markss() {
-//   // ...
-//   return markss();
-// }
-// Page Inschool() {
-//   // ...
-//   return Inschool();
-// }
-// Page Note() {
-//   // ...
-//   return Note();
-// }
-// Page Examprog() {
-//   // ...
-//   return Examprog();
-// }
-// Page Weekprog() {
-//   // ...
-//   return Weekprog();
-// }
-// Page Lesson() {
-//   // ...
-//   return Lesson();
-// }
-
-
+String getTitle(BuildContext context ,int index){
+List<String> titles=[
+AppLocalizations.of(context)!.mark,
+AppLocalizations.of(context)!.inschool,
+AppLocalizations.of(context)!.note,
+AppLocalizations.of(context)!.exampro,
+AppLocalizations.of(context)!.weekpro,
+AppLocalizations.of(context)!.lesson,
+];
+return titles[index];
+}
   
