@@ -16,8 +16,8 @@ class _ExamprogState extends State<Examprog> {
   Widget build(BuildContext context) {
     return  Scaffold(
           
-          appBar:GradientAppBar(
-        gradient: LinearGradient(
+       appBar:GradientAppBar(
+       gradient: LinearGradient(
           begin: Alignment.topLeft,
           colors: [
             //KPrimeryColor2,
@@ -29,9 +29,9 @@ class _ExamprogState extends State<Examprog> {
           ],
 
         ),
-            leading: IconButton(
-                onPressed: () {
-                  Navigator.pop(context);
+         leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
                 },
                 icon: Icon(Icons.arrow_back)),
           
@@ -41,6 +41,7 @@ class _ExamprogState extends State<Examprog> {
               style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
             )),
           ),
+          
           body: Column(
             
             children: [
@@ -48,262 +49,167 @@ class _ExamprogState extends State<Examprog> {
                 padding: const EdgeInsets.all(8.0),
                 child: Row(
                   children: [
-                    Container(
-                      margin: EdgeInsets.symmetric(horizontal: 20),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            DateFormat.yMMMd().format(DateTime.now()),
-                            style: TextStyle(
-                                fontSize: 22, fontWeight: FontWeight.w600),
-                          ),
-                          Text(
-                            "Today",
-                            style: TextStyle(
-                                fontSize: 24,
-                                fontWeight: FontWeight.bold,
-                                color: KPrimeryColor1),
-                          )
-                        ],
+                    Expanded(
+                      flex: 1,
+                      child: Container(
+                        margin: EdgeInsets.symmetric(horizontal: 20),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              DateFormat.yMMMd().format(DateTime.now()),
+                              style: TextStyle(
+                                  fontSize: 22, fontWeight: FontWeight.w600),
+                            ),
+                            Text(
+                              "Today",
+                              style: TextStyle(
+                                  fontSize: 24,
+                                  fontWeight: FontWeight.bold,
+                                  color: KPrimeryColor1),
+                            )
+                          ],
+                        ),
                       ),
                     )
                   ],
                 ),
               ),
-              Container(
-                child: DatePicker(
-                  DateTime.now(),
-                  height: 120,
-                  width: 80,
-                  initialSelectedDate: DateTime.now(),
-                  selectionColor: KPrimeryColor1,
-                ),
-              ),
-              SizedBox(
-                height: MediaQuery.of(context).size.height * .05,
-              ),
-              Container(
-                decoration: BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                        blurRadius: 6,
-                        color: Colors.grey.withOpacity(0.5),
-                        offset: Offset(8, 3))
-                  ],
-                  borderRadius: BorderRadius.circular(18),
-                  border: Border.all(color: KPrimeryColor1, width: 2),
-                  color: KPrimeryColor2,
-                ),
-                height: MediaQuery.of(context).size.height * .2,
-                width: MediaQuery.of(context).size.width * .95,
-                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    Padding(
-                  padding: const EdgeInsets.all(5),
-                  child: RichText(
-                    text: TextSpan(
-                      children: [
-                        TextSpan(
-                          text: " المادة" ":",
-                          style: TextStyle(
-                              fontSize: 20,
-                              fontFamily: KFont,
-                              fontWeight: FontWeight.bold,
-                              color: KPrimeryColor1),
-                        ),
-                        TextSpan(
-                          text: "   ",
-                          style: TextStyle(fontSize: 20, color: Colors.black),
-                        ),
-                        TextSpan(
-                          text: "اللغة العربية ",
-                          style: TextStyle(
-                            fontFamily: KFont,
-                              fontSize: 17,
-                              color: Color.fromARGB(255, 59, 59, 59),
-                              fontWeight: FontWeight.w600),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                    Padding(
-                  padding: const EdgeInsets.all(5.0),
-                  child: RichText(
-                    text: TextSpan(
-                      children: [
-                        TextSpan(
-                          text: " الساعة" ":",
-                          style: TextStyle(
-                              fontSize: 20,
-                              fontFamily: KFont,
-                              fontWeight: FontWeight.bold,
-                              color: KPrimeryColor1),
-                        ),
-                        TextSpan(
-                          text: "   ",
-                          style: TextStyle(fontSize: 20, color: Colors.black),
-                        ),
-                        TextSpan(
-                          text: "8:00 ",
-                          style: TextStyle(
-                            fontFamily: KFont,
-                              fontSize: 17,
-                              color: Color.fromARGB(255, 59, 59, 59),
-                              fontWeight: FontWeight.w600),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(5),
-                  child: RichText(
-                    text: TextSpan(
-                      children: [
-                        TextSpan(
-                          text: " الصف" ":",
-                          style: TextStyle(
-                              fontSize: 20,
-                              fontFamily: KFont,
-                              fontWeight: FontWeight.bold,
-                              color: KPrimeryColor1),
-                        ),
-                        TextSpan(
-                          text: "   ",
-                          style: TextStyle(fontSize: 20, color: Colors.black),
-                        ),
-                        TextSpan(
-                          text: "الثاني ",
-                          style: TextStyle(
-                            fontFamily: KFont,
-                              fontSize: 17,
-                              color: Color.fromARGB(255, 59, 59, 59),
-                              fontWeight: FontWeight.w600),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                  ]
-               ),
-              ),
-              SizedBox(
-                height: MediaQuery.of(context).size.height * .05,
-              ),
-              Container(
-                decoration: BoxDecoration(
-                  
-                  boxShadow: [
-                    BoxShadow(
+              Expanded(
+                flex: 1,
+                child: Container(
+                  child: DatePicker(
+                    DateTime.now(),
+                    height: 120,
+                    width: 80,
+                    initialSelectedDate: DateTime.now(),
+                    selectionColor: KPrimeryColor1,
                     
-                        blurRadius: 6,
-                        color: Colors.grey.withOpacity(0.5),
-                        offset: Offset(8, 3))
-                  ],
-                  borderRadius: BorderRadius.circular(18),
-                  border: Border.all(color: KPrimeryColor1, width: 2),
-                  color: KPrimeryColor3,
-                ),
-                height: MediaQuery.of(context).size.height * .2,
-                width: MediaQuery.of(context).size.width * .95,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    Padding(
-                  padding: const EdgeInsets.all(5),
-                  child: RichText(
-                    text: TextSpan(
-                      children: [
-                        TextSpan(
-                          text: " المادة" ":",
-                          style: TextStyle(
-                              fontSize: 20,
-                              fontFamily: KFont,
-                              fontWeight: FontWeight.bold,
-                              color: KPrimeryColor1),
-                        ),
-                        TextSpan(
-                          text: "   ",
-                          style: TextStyle(fontSize: 20, color: Colors.black),
-                        ),
-                        TextSpan(
-                          text: "اللغة العربية ",
-                          style: TextStyle(
-                            fontFamily: KFont,
-                              fontSize: 17,
-                              color: Color.fromARGB(255, 59, 59, 59),
-                              fontWeight: FontWeight.w600),
-                        ),
-                      ],
-                    ),
                   ),
                 ),
-                    Padding(
-                  padding: const EdgeInsets.all(5.0),
-                  child: RichText(
-                    text: TextSpan(
-                      children: [
-                        TextSpan(
-                          text: " الساعة" ":",
-                          style: TextStyle(
-                              fontSize: 20,
+              ),
+            
+               Expanded(
+                flex: 4,
+                 child: GridView.builder(
+                             
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 1,
+                    childAspectRatio: 2,
+                    
+                    mainAxisSpacing: 20
+                    ),
+                 itemBuilder: (context, index) =>  Container(
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                          blurRadius: 6,
+                          color: Colors.grey.withOpacity(0.5),
+                          offset: Offset(8, 3))
+                    ],
+                    borderRadius: BorderRadius.circular(18),
+                    border: Border.all(color: KPrimeryColor1, width: 2),
+                    color: KPrimeryColor2,
+                  ),
+                  height: MediaQuery.of(context).size.height * .2,
+                  width: MediaQuery.of(context).size.width * .95,
+                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Padding(
+                    padding: const EdgeInsets.all(5),
+                    child: RichText(
+                      text: TextSpan(
+                        children: [
+                          TextSpan(
+                            text: " المادة" ":",
+                            style: TextStyle(
+                                fontSize: 20,
+                                fontFamily: KFont,
+                                fontWeight: FontWeight.bold,
+                                color: KPrimeryColor1),
+                          ),
+                          TextSpan(
+                            text: "   ",
+                            style: TextStyle(fontSize: 20, color: Colors.black),
+                          ),
+                          TextSpan(
+                            text: "اللغة العربية ",
+                            style: TextStyle(
                               fontFamily: KFont,
-                              fontWeight: FontWeight.bold,
-                              color: KPrimeryColor1),
-                        ),
-                        TextSpan(
-                          text: "   ",
-                          style: TextStyle(fontSize: 20, color: Colors.black),
-                        ),
-                        TextSpan(
-                          text: "8:00 ",
-                          style: TextStyle(
-                            fontFamily: KFont,
-                              fontSize: 17,
-                              color: Color.fromARGB(255, 59, 59, 59),
-                              fontWeight: FontWeight.w600),
-                        ),
-                      ],
+                                fontSize: 17,
+                                color: Color.fromARGB(255, 59, 59, 59),
+                                fontWeight: FontWeight.w600),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(5),
-                  child: RichText(
-                    text: TextSpan(
-                      children: [
-                        TextSpan(
-                          text: " الصف" ":",
-                          style: TextStyle(
-                              fontSize: 20,
+                      Padding(
+                    padding: const EdgeInsets.all(5.0),
+                    child: RichText(
+                      text: TextSpan(
+                        children: [
+                          TextSpan(
+                            text: " الساعة" ":",
+                            style: TextStyle(
+                                fontSize: 20,
+                                fontFamily: KFont,
+                                fontWeight: FontWeight.bold,
+                                color: KPrimeryColor1),
+                          ),
+                          TextSpan(
+                            text: "   ",
+                            style: TextStyle(fontSize: 20, color: Colors.black),
+                          ),
+                          TextSpan(
+                            text: "8:00 ",
+                            style: TextStyle(
                               fontFamily: KFont,
-                              fontWeight: FontWeight.bold,
-                              color: KPrimeryColor1),
-                        ),
-                        TextSpan(
-                          text: "   ",
-                          style: TextStyle(fontSize: 20, color: Colors.black),
-                        ),
-                        TextSpan(
-                          text: "الثاني ",
-                          style: TextStyle(
-                            fontFamily: KFont,
-                              fontSize: 17,
-                              color: Color.fromARGB(255, 59, 59, 59),
-                              fontWeight: FontWeight.w600),
-                        ),
-                      ],
+                                fontSize: 17,
+                                color: Color.fromARGB(255, 59, 59, 59),
+                                fontWeight: FontWeight.w600),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                ),
-                  ]
+                  Padding(
+                    padding: const EdgeInsets.all(5),
+                    child: RichText(
+                      text: TextSpan(
+                        children: [
+                          TextSpan(
+                            text: " الصف" ":",
+                            style: TextStyle(
+                                fontSize: 20,
+                                fontFamily: KFont,
+                                fontWeight: FontWeight.bold,
+                                color: KPrimeryColor1),
+                          ),
+                          TextSpan(
+                            text: "   ",
+                            style: TextStyle(fontSize: 20, color: Colors.black),
+                          ),
+                          TextSpan(
+                            text: "الثاني ",
+                            style: TextStyle(
+                              fontFamily: KFont,
+                                fontSize: 17,
+                                color: Color.fromARGB(255, 59, 59, 59),
+                                fontWeight: FontWeight.w600),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                    ]
+                 ),
+                               ),
+                 ),
                ),
-              )
-            ],
-          )
+            ])
+          
     );
   }
 }
