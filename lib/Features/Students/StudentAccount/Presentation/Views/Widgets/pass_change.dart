@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:myshop/Features/Students/LoginStudent/Presentation/Views/Widgets/button_Widget.dart';
-import 'package:myshop/Features/Students/forget_Password/Prsesnation/Views/widgets/verification_code.dart';
-import 'package:myshop/constant.dart';
-import 'package:myshop/core/Utils/app_router.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:go_router/go_router.dart';
+
+import '../../../../../../constant.dart';
+import '../../../../LoginStudent/Presentation/Views/Widgets/button_Widget.dart';
 
 class PassChange extends StatefulWidget {
   const PassChange({super.key});
@@ -56,6 +55,7 @@ class _PassChangeState extends State<PassChange> {
                         return AppLocalizations.of(context)!.errorchangepass1;
                       }
                       password = value;
+                      return null;
                     },
                     style: TextStyle(
                         fontSize: MediaQuery.of(context).size.aspectRatio * 40,
@@ -104,6 +104,7 @@ class _PassChangeState extends State<PassChange> {
                       if (password != confirmPassword) {
                         return AppLocalizations.of(context)!.errorchangepass2;
                       }
+                      return null;
                     },
                     style: TextStyle(
                         fontSize: MediaQuery.of(context).size.aspectRatio * 40,

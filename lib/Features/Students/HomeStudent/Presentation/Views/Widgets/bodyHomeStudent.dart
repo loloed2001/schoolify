@@ -4,11 +4,11 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 
 import 'package:line_icons/line_icons.dart';
 
-import 'package:myshop/Features/Students/Chat/Prsesnation/Views/ChatPage.dart';
-import 'package:myshop/Features/Students/Posts/Prsesnation/Views/PostsPage.dart';
-import 'package:myshop/Features/Students/Service_student/Prsesnation/Views/Homepage.dart';
-import 'package:myshop/Features/Students/StudentAccount/Presentation/Views/StudenAccountPage.dart';
-import 'package:myshop/constant.dart';
+import '../../../../Chat/Prsesnation/Views/ChatPage.dart';
+import '../../../../Posts/Prsesnation/Views/PostsPage.dart';
+import '../../../../Service_student/Prsesnation/Views/Homepage.dart';
+import '../../../../StudentAccount/Presentation/Views/StudenAccountPage.dart';
+import '../../../../../../constant.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class BodyStudent extends StatefulWidget {
@@ -41,8 +41,7 @@ class _BodyStudentState extends State<BodyStudent> {
                 fontSize: MediaQuery.of(context).size.aspectRatio * 30,
                 fontWeight: FontWeight.bold),
             tabBackgroundGradient:
-                LinearGradient(begin: Alignment.bottomLeft, 
-                colors: [
+                LinearGradient(begin: Alignment.bottomLeft, colors: [
               Color(0xFFE3C5E4),
               Color(0xFFCD6FD0),
               Color(0xFF9B71D2),

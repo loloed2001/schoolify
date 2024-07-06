@@ -1,11 +1,12 @@
 import 'package:date_picker_timeline/date_picker_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_gradient_app_bar/flutter_gradient_app_bar.dart';
 import 'package:intl/intl.dart';
-import 'package:myshop/constant.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:myshop/models/Examprogram_model.dart';
 import 'package:myshop/services/getexamprog.dart';
+
+import '../../../../../../constant.dart';
+import '../../../../../../models/Examprogram_model.dart';
 
 class Examprog extends StatefulWidget {
   const Examprog({super.key});
@@ -46,8 +47,7 @@ class _ExamprogState extends State<Examprog> {
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               List<ExamprogramModel> exam = snapshot.data!;
-             
-           
+
               return Column(children: [
                 Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -90,24 +90,24 @@ class _ExamprogState extends State<Examprog> {
                       selectionColor: KPrimeryColor1,
                       onDateChange: (_selectedDate) {
                         selectedDate = _selectedDate;
+                        final list = exam.where((element) {
+                          return element.date.day == selectedDate?.day &&
+                              element.date.month == selectedDate?.month;
+                        }).toList();
+                        print(list);
                       },
                     ),
                   ),
                 ),
-                
                 Expanded(
                   flex: 4,
-                  
                   child: GridView.builder(
-                    
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 1,
                         childAspectRatio: 2,
                         mainAxisSpacing: 20),
                     itemCount: exam.length,
-                    itemBuilder: (context, index) => 
-                    
-                    Container(
+                    itemBuilder: (context, index) => Container(
                         decoration: BoxDecoration(
                           boxShadow: [
                             BoxShadow(
@@ -121,12 +121,9 @@ class _ExamprogState extends State<Examprog> {
                         ),
                         height: MediaQuery.of(context).size.height * .2,
                         width: MediaQuery.of(context).size.width * .95,
-                        child: 
-                        
-                        Column(
+                        child: Column(
                             crossAxisAlignment: CrossAxisAlignment.end,
                             children: [
-                              
                               Padding(
                                 padding: const EdgeInsets.all(5),
                                 child: RichText(
@@ -232,7 +229,7 @@ class _ExamprogState extends State<Examprog> {
               return Center(child: CircularProgressIndicator());
             }
           },
-          future: getExamprogram().getexamprog(sectionid: 1),
+          future: GetExamprogram().getexamprog(sectionid: 1),
         ));
   }
 }

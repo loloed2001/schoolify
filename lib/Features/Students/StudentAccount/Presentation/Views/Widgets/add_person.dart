@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:myshop/constant.dart';
+import '../../../../../../constant.dart';
 
 class add extends StatefulWidget {
   const add({super.key});
@@ -30,17 +30,16 @@ class _addState extends State<add> {
             Stack(
               children: [
                 Container(
-                  width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.height / 2.9,
-                  decoration: BoxDecoration(
-                      color: KPrimeryColor1,
-                      borderRadius:
-                          BorderRadius.only(bottomRight: Radius.circular(70))),
-                  child: Image.asset(
-                    scale: 2.5,
-                    'assets/images/watercolor-end-school-illustration_23-2149415372-removebg-preview.png',
-                  )
-                ),
+                    width: MediaQuery.of(context).size.width,
+                    height: MediaQuery.of(context).size.height / 2.9,
+                    decoration: BoxDecoration(
+                        color: KPrimeryColor1,
+                        borderRadius: BorderRadius.only(
+                            bottomRight: Radius.circular(70))),
+                    child: Image.asset(
+                      scale: 2.5,
+                      'assets/images/watercolor-end-school-illustration_23-2149415372-removebg-preview.png',
+                    )),
                 Padding(
                   padding: const EdgeInsets.only(top: 13),
                   child: IconButton(
@@ -79,7 +78,8 @@ class _addState extends State<add> {
                         Padding(
                           padding: EdgeInsets.only(
                             left: MediaQuery.of(context).size.width * .55,
-                           top: MediaQuery.of(context).size.width * .033,),
+                            top: MediaQuery.of(context).size.width * .033,
+                          ),
                           child: Text(
                             "ابن ",
                             style: TextStyle(
@@ -104,8 +104,10 @@ class _addState extends State<add> {
                           ),
                         ),
                         Padding(
-                          padding:  EdgeInsets.only(left: MediaQuery.of(context).size.width * .033,
-                           top: MediaQuery.of(context).size.width * .033,),
+                          padding: EdgeInsets.only(
+                            left: MediaQuery.of(context).size.width * .033,
+                            top: MediaQuery.of(context).size.width * .033,
+                          ),
                           child: Text(
                             "ابنة ",
                             style: TextStyle(
@@ -319,7 +321,7 @@ class _addState extends State<add> {
                         ),
                         hintText: "اسم الأب ",
                         hintStyle: TextStyle(
-                           fontSize: 23,
+                          fontSize: 23,
                           fontFamily: KFont2,
                           color: Colors.grey,
                         ),
@@ -351,7 +353,7 @@ class _addState extends State<add> {
                           ),
                           hintText: "اسم الأم",
                           hintStyle: TextStyle(
-                             fontSize: 23,
+                            fontSize: 23,
                             fontFamily: KFont2,
                             color: Colors.grey,
                           ),
@@ -386,7 +388,7 @@ class _addState extends State<add> {
                           ),
                           hintText: "رقم الهاتف ",
                           hintStyle: TextStyle(
-                             fontSize: 23,
+                            fontSize: 23,
                             fontFamily: KFont2,
                             color: Colors.grey,
                           ),
@@ -402,9 +404,11 @@ class _addState extends State<add> {
                         style: ElevatedButton.styleFrom(
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(20.0),
-                            ), backgroundColor: KPrimeryColor3,
+                            ),
+                            backgroundColor: KPrimeryColor3,
                             fixedSize: Size(150, 40),
-                            textStyle: TextStyle(color: KPrimeryColor1,fontSize: 20)),
+                            textStyle:
+                                TextStyle(color: KPrimeryColor1, fontSize: 20)),
                         onPressed: () {
                           if (_isTextField1Valid &&
                               _isTextField2Valid &&
@@ -425,7 +429,10 @@ class _addState extends State<add> {
                           // else
                           // print("ok");
                         },
-                        child: Text("إضافة",style: TextStyle(color: KPrimeryColor1),))
+                        child: Text(
+                          "إضافة",
+                          style: TextStyle(color: KPrimeryColor1),
+                        ))
                   ],
                 ),
               ),
@@ -441,14 +448,19 @@ void showErrorDialog(BuildContext context, String errorMessage) {
   showDialog(
     context: context,
     builder: (context) => AlertDialog(
-
-     backgroundColor: Colors.white,  
-    title: Text(
+      backgroundColor: Colors.white,
+      title: Text(
         'خطأ',
         style: TextStyle(
-            color: Colors.red,fontFamily: KFont2, fontSize: 28, fontWeight: FontWeight.bold),
+            color: Colors.red,
+            fontFamily: KFont2,
+            fontSize: 28,
+            fontWeight: FontWeight.bold),
       ),
-      content: Text(errorMessage,style: TextStyle(fontFamily: KFont2,fontSize: 23),),
+      content: Text(
+        errorMessage,
+        style: TextStyle(fontFamily: KFont2, fontSize: 23),
+      ),
       actions: <Widget>[
         TextButton(
           child: Text('حسناً',

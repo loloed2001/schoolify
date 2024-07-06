@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:myshop/Features/Students/Posts/Prsesnation/Views/widgets/Container_Post_custom.dart';
-import 'package:myshop/constant.dart';
+import 'widgets/Container_Post_custom.dart';
+import '../../../../../constant.dart';
 
 class PostsPageView extends StatelessWidget {
   PostsPageView({super.key});

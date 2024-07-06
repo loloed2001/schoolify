@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myshop/constant.dart';
+import '../../../../../../constant.dart';
 
 class Container_chat extends StatelessWidget {
   Container_chat(

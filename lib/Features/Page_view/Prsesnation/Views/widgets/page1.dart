@@ -1,12 +1,11 @@
 import 'dart:ui';
 
-import 'package:date_picker_timeline/extra/style.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:go_router/go_router.dart';
 
-import 'package:myshop/constant.dart';
-import 'package:myshop/core/Utils/app_router.dart';
+import '../../../../../constant.dart';
+import '../../../../../core/Utils/app_router.dart';
 
 class Page1 extends StatelessWidget {
   const Page1({super.key});
@@ -79,8 +78,6 @@ class Page1 extends StatelessWidget {
                           horizontal: MediaQuery.of(context).size.width * .01,
                         ),
                         child: RichText(
-                          textScaleFactor:
-                              MediaQuery.of(context).textScaleFactor,
                           text: TextSpan(
                               text: AppLocalizations.of(context)!.hello,
                               style:
@@ -110,6 +107,8 @@ class Page1 extends StatelessWidget {
                                 TextSpan(
                                     text: AppLocalizations.of(context)!.page1)
                               ]),
+                          textScaler: TextScaler.linear(
+                              MediaQuery.of(context).textScaleFactor),
                         ),
                       )
                     ],

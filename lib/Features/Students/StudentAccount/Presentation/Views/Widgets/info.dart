@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:myshop/Features/Students/StudentAccount/Presentation/Views/Widgets/pichart.dart';
-import 'package:myshop/Features/Students/StudentAccount/Presentation/Views/Widgets/picharthodor.dart';
-import 'package:myshop/constant.dart';
-import 'package:myshop/core/Utils/app_router.dart';
+import 'pichart.dart';
+import 'picharthodor.dart';
+import '../../../../../../constant.dart';
+import '../../../../../../core/Utils/app_router.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Info_student extends StatelessWidget {

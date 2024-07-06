@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:myshop/constant.dart';
+import '../../../../constant.dart';
 
 // ignore: must_be_immutable
 class CircleImageCustom extends StatelessWidget {

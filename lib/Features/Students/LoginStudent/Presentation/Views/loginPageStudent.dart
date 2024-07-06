@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:myshop/Features/Students/LoginStudent/Presentation/Views/Widgets/ContainerLog.dart';
-import 'package:myshop/Features/Students/LoginStudent/Presentation/Views/Widgets/button_Widget.dart';
-import 'package:myshop/constant.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'Widgets/ContainerLog.dart';
+import '../../../../../constant.dart';
 
 class StudentloginView extends StatelessWidget {
   const StudentloginView({super.key});

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:myshop/Features/DialogLogin/Presentation/dialog.dart';
+import '../../../../DialogLogin/Presentation/dialog.dart';
 
-import 'package:myshop/constant.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});

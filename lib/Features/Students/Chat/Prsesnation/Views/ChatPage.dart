@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gradient_app_bar/flutter_gradient_app_bar.dart';
 import 'package:go_router/go_router.dart';
-import 'package:myshop/Features/Students/Chat/Prsesnation/Views/widgets/chatBubble.dart';
-import 'package:myshop/Features/Students/Chat/Prsesnation/Views/widgets/containerChat.dart';
-import 'package:myshop/constant.dart';
-import 'package:myshop/core/Utils/app_router.dart';
+import 'widgets/containerChat.dart';
+import '../../../../../constant.dart';
+import '../../../../../core/Utils/app_router.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ChatViwe extends StatelessWidget {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:myshop/Features/Students/Chat/Prsesnation/Views/widgets/chatBubble.dart';
-import 'package:myshop/constant.dart';
+import 'chatBubble.dart';
+import '../../../../../../constant.dart';
 
 class ChatParents extends StatelessWidget {
   const ChatParents({super.key});
