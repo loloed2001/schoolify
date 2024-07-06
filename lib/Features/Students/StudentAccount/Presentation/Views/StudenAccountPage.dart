@@ -1,10 +1,7 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:myshop/Features/DialogLogin/Presentation/Widget/CircleImage.dart';
-import 'package:myshop/Features/Students/LoginStudent/Presentation/Views/Widgets/ContainerLog.dart';
-import 'package:myshop/Features/Students/StudentAccount/Presentation/Views/Widgets/Container_widget.dart';
-import 'package:myshop/constant.dart';
-import 'package:myshop/main.dart';
+import '../../../../DialogLogin/Presentation/Widget/CircleImage.dart';
+import 'Widgets/Container_widget.dart';
+import '../../../../../constant.dart';
 
 class StudentAccountView extends StatelessWidget {
   const StudentAccountView({super.key});

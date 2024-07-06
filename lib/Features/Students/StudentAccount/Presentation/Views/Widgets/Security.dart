@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:myshop/constant.dart';
-import 'package:myshop/core/Utils/app_router.dart';
+import '../../../../../../constant.dart';
+import '../../../../../../core/Utils/app_router.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
 
 class Security_View extends StatelessWidget {
   const Security_View({super.key});
@@ -75,92 +74,89 @@ class infoCustom extends StatelessWidget {
   Icon? icons;
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        SizedBox(
-          height: MediaQuery.of(context).size.height * .03,
+    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+      SizedBox(
+        height: MediaQuery.of(context).size.height * .03,
+      ),
+      Padding(
+        padding: EdgeInsets.only(
+          left: MediaQuery.of(context).size.width * .04,
+          right: MediaQuery.of(context).size.width * .05,
         ),
-        Padding(
-          padding: EdgeInsets.only(
-            left: MediaQuery.of(context).size.width * .04,
-            right: MediaQuery.of(context).size.width * .05,
-          ),
-          child: Text(
-            '$text',
-            style: TextStyle(
-              fontWeight: FontWeight.w500,
-              color: KPrimeryColor1,
-              fontSize: MediaQuery.of(context).size.aspectRatio * 42,
-            ),
+        child: Text(
+          '$text',
+          style: TextStyle(
+            fontWeight: FontWeight.w500,
+            color: KPrimeryColor1,
+            fontSize: MediaQuery.of(context).size.aspectRatio * 42,
           ),
         ),
-        SizedBox(
-          height: MediaQuery.of(context).size.height * .002,
+      ),
+      SizedBox(
+        height: MediaQuery.of(context).size.height * .002,
+      ),
+      Padding(
+        padding: EdgeInsets.only(
+          left: MediaQuery.of(context).size.width * .033,
+          right: MediaQuery.of(context).size.width * .0033,
         ),
-        Padding(
-          padding: EdgeInsets.only(
-            left: MediaQuery.of(context).size.width * .033,
-            right: MediaQuery.of(context).size.width * .0033,
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Container(
-                child: Padding(
-                    padding: EdgeInsets.only(
-                      top: MediaQuery.of(context).size.height * .01,
-                      left: MediaQuery.of(context).size.width * .01,
-                      right: MediaQuery.of(context).size.width * .01,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Container(
+              child: Padding(
+                  padding: EdgeInsets.only(
+                    top: MediaQuery.of(context).size.height * .01,
+                    left: MediaQuery.of(context).size.width * .01,
+                    right: MediaQuery.of(context).size.width * .01,
+                  ),
+                  child: TextFormField(
+                    enabled: false,
+                    showCursor: false,
+                    readOnly: true,
+                    decoration: InputDecoration(
+                      prefixIcon: icons,
+                      prefixIconColor: Colors.grey,
+                      border: InputBorder.none,
+                      hintText: '$pass_em',
+                      hintStyle: TextStyle(
+                          fontSize:
+                              MediaQuery.of(context).size.aspectRatio * 37,
+                          fontFamily: KFont3,
+                          letterSpacing:
+                              MediaQuery.of(context).size.width * .002,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black45),
                     ),
-                    child: TextFormField(
-                      enabled: false,
-                      showCursor: false,
-                      readOnly: true,
-                      decoration: InputDecoration(
-                        prefixIcon: icons,
-                        prefixIconColor: Colors.grey,
-                        border: InputBorder.none,
-                        hintText: '$pass_em',
-                        hintStyle: TextStyle(
-                            fontSize:
-                                MediaQuery.of(context).size.aspectRatio * 37,
-                            fontFamily: KFont3,
-                            letterSpacing:
-                                MediaQuery.of(context).size.width * .002,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black45),
-                      ),
-                    )),
-                decoration: BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                        blurRadius: 6,
-                        color: Colors.grey.withOpacity(0.5),
-                        offset: Offset(8, 3))
-                  ],
-                  borderRadius: BorderRadius.circular(12),
-                  border:
-                      Border.all(color: Colors.grey.withOpacity(.5), width: 2),
-                  color: KPrimeryColor5,
-                ),
-                height: MediaQuery.of(context).size.height * .08,
-                width: MediaQuery.of(context).size.width * .8,
-              ),
-              SizedBox(
-                width: MediaQuery.of(context).size.width * .02,
-              ),
-              IconButton(
-                  onPressed: onpress,
-                  icon: Icon(
-                    Icons.edit,
-                    color: KPrimeryColor1,
-                    size: MediaQuery.of(context).size.aspectRatio * 60,
                   )),
-            ],
-          ),
+              decoration: BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                      blurRadius: 6,
+                      color: Colors.grey.withOpacity(0.5),
+                      offset: Offset(8, 3))
+                ],
+                borderRadius: BorderRadius.circular(12),
+                border:
+                    Border.all(color: Colors.grey.withOpacity(.5), width: 2),
+                color: KPrimeryColor5,
+              ),
+              height: MediaQuery.of(context).size.height * .08,
+              width: MediaQuery.of(context).size.width * .8,
+            ),
+            SizedBox(
+              width: MediaQuery.of(context).size.width * .02,
+            ),
+            IconButton(
+                onPressed: onpress,
+                icon: Icon(
+                  Icons.edit,
+                  color: KPrimeryColor1,
+                  size: MediaQuery.of(context).size.aspectRatio * 60,
+                )),
+          ],
         ),
-]);}
-   
-  
+      ),
+    ]);
+  }
 }

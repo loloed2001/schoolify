@@ -1,9 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gradient_app_bar/flutter_gradient_app_bar.dart';
-import 'package:myshop/constant.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:myshop/models/weekprogram_model.dart';
-import 'package:myshop/services/getweekprog.dart';
 
 class Weekprog extends StatefulWidget {
   const Weekprog({super.key});
@@ -23,20 +18,19 @@ class _WeekprogState extends State<Weekprog> {
     "الفترة الخامسة",
     "الفترة السادسة"
   ];
-  
+
   String daytostring(int selectday) {
-  // Create a map to associate day numbers with weekday strings
-  Map<int, String> dayMap = {
-    0: "الأحد",
-    1: "الاثنين",
-    2: "الثلاثاء",
-    3: "الاربعاء",
-    4: "الخميس",
-   
-  };
-  return dayMap[selectday]!;
+    // Create a map to associate day numbers with weekday strings
+    Map<int, String> dayMap = {
+      0: "الأحد",
+      1: "الاثنين",
+      2: "الثلاثاء",
+      3: "الاربعاء",
+      4: "الخميس",
+    };
+    return dayMap[selectday]!;
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,12 +57,12 @@ class _WeekprogState extends State<Weekprog> {
         //     style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
         //   )),
         // ),
-        // body: FutureBuilder<List<WeekprogramModel>>( 
+        // body: FutureBuilder<List<WeekprogramModel>>(
         //   builder: (context, snapshot) {
         //     if (snapshot.hasData){
-              
+
         //     List<WeekprogramModel> week = snapshot.data!;
-            
+
         //     List<WeekprogramModel> filterweek = snapshot.data!
         //           .where((exam) => exam.day.compareTo() == 0)
         //           .toList();
@@ -158,7 +152,7 @@ class _WeekprogState extends State<Weekprog> {
         //                       );
         //                     },
         //                   ),
-                       
+
         //           )
         //         ],
         //       ),
@@ -172,15 +166,12 @@ class _WeekprogState extends State<Weekprog> {
         //       return Center(child: CircularProgressIndicator());
         //     }
         // },
-        
+
         //  future:  WeekprgService().getWeekprg(
         //                 sectionid: 1,
         //               ),
         // )
-          
-    );   
-        
-        
-        
+
+        );
   }
 }

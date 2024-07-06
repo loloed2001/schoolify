@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:myshop/Features/Students/LoginStudent/Presentation/Views/Widgets/Splash_Dialog.dart';
-import 'package:myshop/Features/Students/LoginStudent/Presentation/Views/Widgets/button_Widget.dart';
-import 'package:myshop/constant.dart';
-import 'package:myshop/core/Utils/app_router.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:go_router/go_router.dart';
+
+import '../../../../../../constant.dart';
+import '../../../../../../core/Utils/app_router.dart';
+import 'Splash_Dialog.dart';
+import 'button_Widget.dart';
 
 class ContainerCustomLog extends StatefulWidget {
   ContainerCustomLog({super.key});
@@ -54,6 +55,7 @@ class _ContainerCustomLogState extends State<ContainerCustomLog> {
                         } else if (value.contains(RegExp(r'[0-9]'))) {
                           return AppLocalizations.of(context)!.errorusername2;
                         }
+                        return null;
                       },
                       decoration: InputDecoration(
                         prefixIcon: Icon(Icons.person),
@@ -97,6 +99,7 @@ class _ContainerCustomLogState extends State<ContainerCustomLog> {
                         if (value == null || value.isEmpty) {
                           return AppLocalizations.of(context)!.errorpassword;
                         }
+                        return null;
                       },
                       textAlign: TextAlign.start,
                       obscureText: _isObscure,

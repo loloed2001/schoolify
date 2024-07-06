@@ -1,27 +1,26 @@
-
 import 'package:go_router/go_router.dart';
-import 'package:myshop/Features/Page_view/Prsesnation/Views/PageBody.dart';
-import 'package:myshop/Features/Students/Chat/Prsesnation/Views/widgets/Ad_chatST.dart';
-import 'package:myshop/Features/Students/Chat/Prsesnation/Views/widgets/chat.dart';
-import 'package:myshop/Features/Students/HomeStudent/Presentation/Views/HomeStudentPage.dart';
-import 'package:myshop/Features/Students/LoginStudent/Presentation/Views/Widgets/Splash_Dialog.dart';
-import 'package:myshop/Features/Students/LoginStudent/Presentation/Views/loginPageStudent.dart';
-import 'package:myshop/Features/Splash/Presentation/Views/SplashPage.dart';
-import 'package:myshop/Features/Students/Service_student/Prsesnation/Views/widgets/examprog.dart';
-import 'package:myshop/Features/Students/Service_student/Prsesnation/Views/widgets/inschool.dart';
-import 'package:myshop/Features/Students/Service_student/Prsesnation/Views/widgets/marks.dart';
-import 'package:myshop/Features/Students/Service_student/Prsesnation/Views/widgets/my_lesson.dart';
-import 'package:myshop/Features/Students/Service_student/Prsesnation/Views/widgets/note.dart';
-import 'package:myshop/Features/Students/Service_student/Prsesnation/Views/widgets/weekprog.dart';
-import 'package:myshop/Features/Students/StudentAccount/Presentation/Views/StudenAccountPage.dart';
-import 'package:myshop/Features/Students/StudentAccount/Presentation/Views/Widgets/Email_change.dart';
-import 'package:myshop/Features/Students/StudentAccount/Presentation/Views/Widgets/Security.dart';
-import 'package:myshop/Features/Students/StudentAccount/Presentation/Views/Widgets/add_person.dart';
-import 'package:myshop/Features/Students/StudentAccount/Presentation/Views/Widgets/info.dart';
-import 'package:myshop/Features/Students/StudentAccount/Presentation/Views/Widgets/langauge.dart';
-import 'package:myshop/Features/Students/StudentAccount/Presentation/Views/Widgets/pass_change.dart';
-import 'package:myshop/Features/Students/forget_Password/Prsesnation/Views/forget_passwordPage.dart';
-import 'package:myshop/Features/Students/forget_Password/Prsesnation/Views/widgets/Code_Page.dart';
+import '../../Features/Page_view/Prsesnation/Views/PageBody.dart';
+import '../../Features/Students/Chat/Prsesnation/Views/widgets/Ad_chatST.dart';
+import '../../Features/Students/Chat/Prsesnation/Views/widgets/chat.dart';
+import '../../Features/Students/HomeStudent/Presentation/Views/HomeStudentPage.dart';
+import '../../Features/Students/LoginStudent/Presentation/Views/Widgets/Splash_Dialog.dart';
+import '../../Features/Students/LoginStudent/Presentation/Views/loginPageStudent.dart';
+import '../../Features/Splash/Presentation/Views/SplashPage.dart';
+import '../../Features/Students/Service_student/Prsesnation/Views/widgets/examprog.dart';
+import '../../Features/Students/Service_student/Prsesnation/Views/widgets/inschool.dart';
+import '../../Features/Students/Service_student/Prsesnation/Views/widgets/marks.dart';
+import '../../Features/Students/Service_student/Prsesnation/Views/widgets/my_lesson.dart';
+import '../../Features/Students/Service_student/Prsesnation/Views/widgets/note.dart';
+import '../../Features/Students/Service_student/Prsesnation/Views/widgets/weekprog.dart';
+import '../../Features/Students/StudentAccount/Presentation/Views/StudenAccountPage.dart';
+import '../../Features/Students/StudentAccount/Presentation/Views/Widgets/Email_change.dart';
+import '../../Features/Students/StudentAccount/Presentation/Views/Widgets/Security.dart';
+import '../../Features/Students/StudentAccount/Presentation/Views/Widgets/add_person.dart';
+import '../../Features/Students/StudentAccount/Presentation/Views/Widgets/info.dart';
+import '../../Features/Students/StudentAccount/Presentation/Views/Widgets/langauge.dart';
+import '../../Features/Students/StudentAccount/Presentation/Views/Widgets/pass_change.dart';
+import '../../Features/Students/forget_Password/Prsesnation/Views/forget_passwordPage.dart';
+import '../../Features/Students/forget_Password/Prsesnation/Views/widgets/Code_Page.dart';
 
 abstract class AppRouter {
   static const KSplashPage = '/SplashView';
@@ -117,27 +116,27 @@ abstract class AppRouter {
       path: Kpageview,
       builder: (context, state) => const Page_View(),
     ),
-     GoRoute(
+    GoRoute(
       path: knote,
       builder: (context, state) => const Note(),
     ),
-     GoRoute(
+    GoRoute(
       path: kinschool,
       builder: (context, state) => const Inschool(),
     ),
-     GoRoute(
+    GoRoute(
       path: kmarkess,
       builder: (context, state) => const markss(),
     ),
-     GoRoute(
+    GoRoute(
       path: klesson,
       builder: (context, state) => const Lesson(),
     ),
-     GoRoute(
+    GoRoute(
       path: kexamprog,
       builder: (context, state) => const Examprog(),
     ),
-     GoRoute(
+    GoRoute(
       path: kWeekprog,
       builder: (context, state) => const Weekprog(),
     ),

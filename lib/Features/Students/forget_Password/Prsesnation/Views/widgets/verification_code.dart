@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_verification_code/flutter_verification_code.dart';
-import 'package:myshop/constant.dart';
+import '../../../../../../constant.dart';
 
 class verificationcode extends StatefulWidget {
   const verificationcode({super.key});

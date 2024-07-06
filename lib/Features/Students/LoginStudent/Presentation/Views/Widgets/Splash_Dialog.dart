@@ -1,12 +1,8 @@
-import 'package:animated_splash_screen/animated_splash_screen.dart';
-import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:go_router/go_router.dart';
 import 'package:lottie/lottie.dart';
-import 'package:myshop/Features/Students/LoginStudent/Presentation/Views/loginPageStudent.dart';
-import 'package:myshop/constant.dart';
-import 'package:myshop/core/Utils/app_router.dart';
+import '../../../../../../constant.dart';
+import '../../../../../../core/Utils/app_router.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SplashDialog extends StatefulWidget {

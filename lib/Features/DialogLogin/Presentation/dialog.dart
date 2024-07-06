@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:myshop/Features/DialogLogin/Presentation/Widget/CircleImage.dart';
-import 'package:myshop/constant.dart';
-import 'package:myshop/core/Utils/app_router.dart';
-
-import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:myshop/core/Utils/app_router.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:go_router/go_router.dart';
+
+import '../../../constant.dart';
+import '../../../core/Utils/app_router.dart';
+import 'Widget/CircleImage.dart';
 
 class DialogCustom extends StatelessWidget {
   const DialogCustom({super.key});
@@ -48,7 +46,7 @@ class DialogCustom extends StatelessWidget {
                       image: AssetImage('assets/images/Students.png'),
                     ),
                     SizedBox(
-                      height: MediaQuery.of(context)!.size.height * .01,
+                      height: MediaQuery.of(context).size.height * .01,
                     ),
                     Text(
                       AppLocalizations.of(context)!.student,
@@ -75,7 +73,7 @@ class DialogCustom extends StatelessWidget {
                       image: AssetImage('assets/images/family.png'),
                     ),
                     SizedBox(
-                      height: MediaQuery.of(context)!.size.height * .01,
+                      height: MediaQuery.of(context).size.height * .01,
                     ),
                     Text(
                       AppLocalizations.of(context)!.parents,

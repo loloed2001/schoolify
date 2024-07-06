@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:myshop/Features/Students/LoginStudent/Presentation/Views/Widgets/button_Widget.dart';
-import 'package:myshop/constant.dart';
-import 'package:myshop/core/Utils/app_router.dart';
+
+import '../../../../../constant.dart';
+import '../../../../../core/Utils/app_router.dart';
+import '../../../LoginStudent/Presentation/Views/Widgets/button_Widget.dart';
 
 class Forget_passwordView extends StatefulWidget {
   Forget_passwordView({super.key});
@@ -57,6 +58,7 @@ class _Forget_passwordViewState extends State<Forget_passwordView> {
                   } else if (value.isNotEmpty && !value.contains('@')) {
                     return '@ يجب ان يحتوي البريد الإلكتروني على ';
                   }
+                  return null;
                 },
                 // onChanged: onChanged,
                 decoration: InputDecoration(

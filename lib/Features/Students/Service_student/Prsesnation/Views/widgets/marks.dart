@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gradient_app_bar/flutter_gradient_app_bar.dart';
 import 'package:intl/intl.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-import 'package:myshop/constant.dart';
+import '../../../../../../constant.dart';
 
 class markss extends StatefulWidget {
   const markss({super.key});
@@ -91,8 +90,8 @@ class _markssState extends State<markss> {
       _marks.fold(0.0, (sum, mark) => sum + mark.grade) / 10;
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-        appBar: GradientAppBar(
+    return Scaffold(
+      appBar: GradientAppBar(
         gradient: LinearGradient(
           begin: Alignment.topLeft,
           colors: [
@@ -103,201 +102,199 @@ class _markssState extends State<markss> {
             // Color(0xFF703EA9),
             Color(0xFFCD6FD0),
           ],
-
         ),
-          leading: IconButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              icon: Icon(Icons.arrow_back)),
-          
-          title: Center(
-              child: Text(
-            "العلامات",
-            style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-          )),
-        ),
-        body: SingleChildScrollView(
-          child: Container(
-            width: double.infinity,
-            color: KPrimeryColor2,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: RichText(
-                    text: TextSpan(
-                      children: [
-                        TextSpan(
-                          text: " اسم الطالب " ":",
-                          style: TextStyle(
-                              fontSize: 20,
-                              fontFamily: KFont,
-                              fontWeight: FontWeight.bold,
-                              color: KPrimeryColor1),
-                        ),
-                        TextSpan(
-                          text: "   ",
-                          style: TextStyle(fontSize: 20, color: Colors.black),
-                        ),
-                        TextSpan(
-                          text: "أحمد محمد",
-                          style: TextStyle(
-                            fontFamily: KFont,
-                              fontSize: 17,
-                              color: Color.fromARGB(255, 59, 59, 59),
-                              fontWeight: FontWeight.w600),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: RichText(
-                    text: TextSpan(
-                      children: [
-                        TextSpan(
-                          text: " السنة الدراسية  " ":",
-                          style: TextStyle(
-                            fontFamily: KFont,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              color: KPrimeryColor1),
-                        ),
-                        TextSpan(
-                          text: "   ",
-                          style: TextStyle(
+        leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: Icon(Icons.arrow_back)),
+        title: Center(
+            child: Text(
+          "العلامات",
+          style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+        )),
+      ),
+      body: SingleChildScrollView(
+        child: Container(
+          width: double.infinity,
+          color: KPrimeryColor2,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: RichText(
+                  text: TextSpan(
+                    children: [
+                      TextSpan(
+                        text: " اسم الطالب " ":",
+                        style: TextStyle(
                             fontSize: 20,
-                          ),
-                        ),
-                        TextSpan(
-                          
-                          text: "الثاني ",
-                          style: TextStyle(
                             fontFamily: KFont,
-                              fontSize: 17,
-                              color: Color.fromARGB(255, 59, 59, 59),
-                              fontWeight: FontWeight.w600),
-                        ),
-                       
-                      ],
-                    ),
+                            fontWeight: FontWeight.bold,
+                            color: KPrimeryColor1),
+                      ),
+                      TextSpan(
+                        text: "   ",
+                        style: TextStyle(fontSize: 20, color: Colors.black),
+                      ),
+                      TextSpan(
+                        text: "أحمد محمد",
+                        style: TextStyle(
+                            fontFamily: KFont,
+                            fontSize: 17,
+                            color: Color.fromARGB(255, 59, 59, 59),
+                            fontWeight: FontWeight.w600),
+                      ),
+                    ],
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: RichText(
-                    text: TextSpan(
-                      children: [
-                        TextSpan(
-                          text: " الشعبة" ":",
-                          style: TextStyle(
-                              fontSize: 20,
-                              fontFamily: KFont,
-                              fontWeight: FontWeight.bold,
-                              color: KPrimeryColor1),
-                        ),
-                        TextSpan(
-                          text: "   ",
-                          style: TextStyle(fontSize: 20, color: Colors.black),
-                        ),
-                        TextSpan(
-                          text: "الثانية ",
-                          style: TextStyle(
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: RichText(
+                  text: TextSpan(
+                    children: [
+                      TextSpan(
+                        text: " السنة الدراسية  " ":",
+                        style: TextStyle(
                             fontFamily: KFont,
-                              fontSize: 17,
-                              color: Color.fromARGB(255, 59, 59, 59),
-                              fontWeight: FontWeight.w600),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                DataTable(
-                  columns: const [
-                    DataColumn(
-                        label: Text(
-                      'التاريخ',
-                      style: TextStyle(
-                        fontFamily: KFont,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: KPrimeryColor1),
+                      ),
+                      TextSpan(
+                        text: "   ",
+                        style: TextStyle(
                           fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          color: KPrimeryColor1),
-                    )),
-                    DataColumn(
-                        label: Text('الدرجة',
-                            style: TextStyle(
-                              fontFamily: KFont,
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: KPrimeryColor1))),
-                    DataColumn(
-                        label: Text('المادة',
-                            style: TextStyle(
-                              fontFamily: KFont,
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: KPrimeryColor1))),
-                  ],
-                  rows: _marks.map((mark) {
-                    final formattedDate =
-                        DateFormat('y-MM-dd').format(mark.date);
-                    return DataRow(cells: [
-                      DataCell(Text(formattedDate,style: TextStyle(fontFamily: KFont,fontSize: 16),)),
-                      DataCell(
-                        Text(
-                          mark.grade.toString(),
-                          style: TextStyle(
-                            fontFamily: KFont,
-                              fontSize: 17,
-                              fontWeight: FontWeight.bold,
-                              color: _buildColor(mark.grade)),
                         ),
                       ),
-                      DataCell(Text(
-                        mark.subject,
+                      TextSpan(
+                        text: "الثاني ",
                         style: TextStyle(
-                          
-                          fontFamily: KFont,
-                            fontSize: 19, fontWeight: FontWeight.bold),
-                      )),
-                    ]);
-                  }).toList(),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: RichText(
-                    text: TextSpan(
-                      children: [
-                        TextSpan(
-                          text: "المجموع : ",
-                          style: TextStyle(
                             fontFamily: KFont,
+                            fontSize: 17,
+                            color: Color.fromARGB(255, 59, 59, 59),
+                            fontWeight: FontWeight.w600),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: RichText(
+                  text: TextSpan(
+                    children: [
+                      TextSpan(
+                        text: " الشعبة" ":",
+                        style: TextStyle(
+                            fontSize: 20,
+                            fontFamily: KFont,
+                            fontWeight: FontWeight.bold,
+                            color: KPrimeryColor1),
+                      ),
+                      TextSpan(
+                        text: "   ",
+                        style: TextStyle(fontSize: 20, color: Colors.black),
+                      ),
+                      TextSpan(
+                        text: "الثانية ",
+                        style: TextStyle(
+                            fontFamily: KFont,
+                            fontSize: 17,
+                            color: Color.fromARGB(255, 59, 59, 59),
+                            fontWeight: FontWeight.w600),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              DataTable(
+                columns: const [
+                  DataColumn(
+                      label: Text(
+                    'التاريخ',
+                    style: TextStyle(
+                        fontFamily: KFont,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: KPrimeryColor1),
+                  )),
+                  DataColumn(
+                      label: Text('الدرجة',
+                          style: TextStyle(
+                              fontFamily: KFont,
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
-                              color: KPrimeryColor1),
-                        ),
-                        TextSpan(
-                          text: "   ",
-                          style: TextStyle(fontSize: 20, color: Colors.black),
-                        ),
-                        TextSpan(
-                          text: "$totalMarks",
+                              color: KPrimeryColor1))),
+                  DataColumn(
+                      label: Text('المادة',
                           style: TextStyle(
+                              fontFamily: KFont,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: KPrimeryColor1))),
+                ],
+                rows: _marks.map((mark) {
+                  final formattedDate = DateFormat('y-MM-dd').format(mark.date);
+                  return DataRow(cells: [
+                    DataCell(Text(
+                      formattedDate,
+                      style: TextStyle(fontFamily: KFont, fontSize: 16),
+                    )),
+                    DataCell(
+                      Text(
+                        mark.grade.toString(),
+                        style: TextStyle(
                             fontFamily: KFont,
-                              fontSize: 20, color: _buildColor1(totalMarks)),
-                        )
-                      ],
+                            fontSize: 17,
+                            fontWeight: FontWeight.bold,
+                            color: _buildColor(mark.grade)),
+                      ),
                     ),
+                    DataCell(Text(
+                      mark.subject,
+                      style: TextStyle(
+                          fontFamily: KFont,
+                          fontSize: 19,
+                          fontWeight: FontWeight.bold),
+                    )),
+                  ]);
+                }).toList(),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: RichText(
+                  text: TextSpan(
+                    children: [
+                      TextSpan(
+                        text: "المجموع : ",
+                        style: TextStyle(
+                            fontFamily: KFont,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: KPrimeryColor1),
+                      ),
+                      TextSpan(
+                        text: "   ",
+                        style: TextStyle(fontSize: 20, color: Colors.black),
+                      ),
+                      TextSpan(
+                        text: "$totalMarks",
+                        style: TextStyle(
+                            fontFamily: KFont,
+                            fontSize: 20,
+                            color: _buildColor1(totalMarks)),
+                      )
+                    ],
                   ),
-                )
-              ],
-            ),
+                ),
+              )
+            ],
           ),
         ),
-      
+      ),
     );
   }
 }

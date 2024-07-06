@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:myshop/Features/Students/LoginStudent/Presentation/Views/Widgets/button_Widget.dart';
-import 'package:myshop/Features/Students/forget_Password/Prsesnation/Views/widgets/verification_code.dart';
-import 'package:myshop/constant.dart';
-import 'package:myshop/core/Utils/app_router.dart';
+import '../../../../LoginStudent/Presentation/Views/Widgets/button_Widget.dart';
+import 'verification_code.dart';
+import '../../../../../../constant.dart';
+import '../../../../../../core/Utils/app_router.dart';
 
 class Code_page extends StatelessWidget {
   const Code_page({super.key});
