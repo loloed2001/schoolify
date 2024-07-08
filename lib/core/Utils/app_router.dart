@@ -1,4 +1,5 @@
 import 'package:go_router/go_router.dart';
+import 'package:myshop/Features/Students/StudentAccount/Presentation/Views/Widgets/about.dart';
 import '../../Features/Page_view/Prsesnation/Views/PageBody.dart';
 import '../../Features/Students/Chat/Prsesnation/Views/widgets/Ad_chatST.dart';
 import '../../Features/Students/Chat/Prsesnation/Views/widgets/chat.dart';
@@ -15,7 +16,7 @@ import '../../Features/Students/Service_student/Prsesnation/Views/widgets/weekpr
 import '../../Features/Students/StudentAccount/Presentation/Views/StudenAccountPage.dart';
 import '../../Features/Students/StudentAccount/Presentation/Views/Widgets/Email_change.dart';
 import '../../Features/Students/StudentAccount/Presentation/Views/Widgets/Security.dart';
-import '../../Features/Students/StudentAccount/Presentation/Views/Widgets/add_person.dart';
+
 import '../../Features/Students/StudentAccount/Presentation/Views/Widgets/info.dart';
 import '../../Features/Students/StudentAccount/Presentation/Views/Widgets/langauge.dart';
 import '../../Features/Students/StudentAccount/Presentation/Views/Widgets/pass_change.dart';
@@ -47,6 +48,7 @@ abstract class AppRouter {
   static const klesson = '/lesson';
   static const kexamprog = '/examprog';
   static const weekprg = '/weekprg';
+  static const KAbout = '/About';
 
   static final router = GoRouter(routes: [
     GoRoute(path: '/', builder: (context, state) => const Page_View()),
@@ -105,10 +107,6 @@ abstract class AppRouter {
       builder: (context, state) => const Info_student(),
     ),
     GoRoute(
-      path: Kaddstudent,
-      builder: (context, state) => const add(),
-    ),
-    GoRoute(
       path: Klanguage,
       builder: (context, state) => const LanguageView(),
     ),
@@ -139,6 +137,10 @@ abstract class AppRouter {
     GoRoute(
       path: kWeekprog,
       builder: (context, state) => const Weekprog(),
+    ),
+    GoRoute(
+      path: KAbout,
+      builder: (context, state) => About(),
     ),
   ]);
 }

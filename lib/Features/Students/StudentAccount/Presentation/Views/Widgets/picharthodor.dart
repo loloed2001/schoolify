@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../../../../constant.dart';
+import 'package:myshop/constant.dart';
 import 'package:pie_chart/pie_chart.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -17,7 +17,7 @@ class picharthodor extends StatelessWidget {
     return Container(
       height: MediaQuery.of(context).size.height * .2,
       padding: EdgeInsets.symmetric(
-          horizontal: MediaQuery.of(context).size.height * .02),
+          horizontal: MediaQuery.of(context).size.height * .01),
       child: PieChart(
         chartLegendSpacing: MediaQuery.of(context).size.aspectRatio * 30,
         ringStrokeWidth: MediaQuery.of(context).size.width * 0.2,

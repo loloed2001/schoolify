@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../../../../constant.dart';
+import 'package:myshop/constant.dart';
 import 'package:pie_chart/pie_chart.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 

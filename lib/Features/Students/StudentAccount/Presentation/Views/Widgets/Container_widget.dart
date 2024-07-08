@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
-import '../../../../../../constant.dart';
-import '../../../../../../core/Utils/app_router.dart';
+import 'package:lottie/lottie.dart';
+import 'package:myshop/constant.dart';
+import 'package:myshop/core/Utils/app_router.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ContainerWidget extends StatelessWidget {
@@ -49,6 +51,7 @@ class ContainerWidget extends StatelessWidget {
               ),
               Divider(
                 thickness: MediaQuery.of(context).size.aspectRatio * 2,
+                color: KPrimeryColor4,
               ),
               GestureDetector(
                 onTap: () {
@@ -76,16 +79,17 @@ class ContainerWidget extends StatelessWidget {
               ),
               Divider(
                 thickness: MediaQuery.of(context).size.aspectRatio * 2,
+                color: KPrimeryColor4,
               ),
               GestureDetector(
                 onTap: () {
-                  GoRouter.of(context).push(AppRouter.Kaddstudent);
+                  GoRouter.of(context).push(AppRouter.KAbout);
                 },
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      AppLocalizations.of(context)!.addson,
+                      AppLocalizations.of(context)!.about,
                       style: TextStyle(
                           color: Colors.black45,
                           fontSize:
@@ -95,14 +99,15 @@ class ContainerWidget extends StatelessWidget {
                     IconButton(
                         color: KPrimeryColor1,
                         onPressed: () {
-                          GoRouter.of(context).push(AppRouter.Kaddstudent);
+                          GoRouter.of(context).push(AppRouter.KAbout);
                         },
-                        icon: Icon(Icons.add_circle_outline_outlined)),
+                        icon: Icon(FontAwesomeIcons.circleQuestion)),
                   ],
                 ),
               ),
               Divider(
                 thickness: MediaQuery.of(context).size.aspectRatio * 2,
+                color: KPrimeryColor4,
               ),
               GestureDetector(
                 onTap: () {
@@ -130,6 +135,7 @@ class ContainerWidget extends StatelessWidget {
               ),
               Divider(
                 thickness: MediaQuery.of(context).size.aspectRatio * 2,
+                color: KPrimeryColor4,
               ),
               GestureDetector(
                 onTap: () {},
@@ -153,6 +159,26 @@ class ContainerWidget extends StatelessWidget {
               ),
               Divider(
                 thickness: MediaQuery.of(context).size.aspectRatio * 2,
+                color: KPrimeryColor4,
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * .18,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Lottie.asset(
+                    "assets/lottie/insta.json",
+                  width: MediaQuery.of(context).size.width * .08,
+                  ),
+                  SizedBox(
+                      width: MediaQuery.of(context).size.width * .09,
+                      ),
+                  Lottie.asset(
+                    "assets/lottie/face.json",
+                    width: MediaQuery.of(context).size.width * .08,
+                  ),
+                ],
               )
             ],
           ),

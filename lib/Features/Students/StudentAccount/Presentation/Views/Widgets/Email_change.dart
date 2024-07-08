@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
+import 'package:myshop/Features/Students/LoginStudent/Presentation/Views/Widgets/button_Widget.dart';
+import 'package:myshop/Features/Students/forget_Password/Prsesnation/Views/widgets/verification_code.dart';
 
-import '../../../../../../constant.dart';
-import '../../../../../../core/Utils/app_router.dart';
-import '../../../../LoginStudent/Presentation/Views/Widgets/button_Widget.dart';
-import '../../../../forget_Password/Prsesnation/Views/widgets/verification_code.dart';
+import 'package:myshop/constant.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:myshop/core/Utils/app_router.dart';
 
 class EmailChange extends StatefulWidget {
   EmailChange({super.key});
@@ -79,7 +79,6 @@ class _EmailChangeState extends State<EmailChange> {
                     } else if (value.isNotEmpty && !value.contains('@')) {
                       return AppLocalizations.of(context)!.errorEmail2;
                     }
-                    return null;
                   },
                   // onChanged: onChanged,
                   decoration: InputDecoration(
@@ -151,7 +150,9 @@ class Code_page_change extends StatelessWidget {
             padding: EdgeInsets.only(
               top: MediaQuery.of(context).size.height * .05,
             ),
-            child: Center(child: verificationcode()),
+            child: Center(
+              child: verificationcode(),
+            ),
           ),
           Padding(
             padding: EdgeInsets.only(
