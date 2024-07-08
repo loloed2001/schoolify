@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import '../../../../../constant.dart';
 import '../../../../../core/Utils/app_router.dart';
 import '../../../LoginStudent/Presentation/Views/Widgets/button_Widget.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Forget_passwordView extends StatefulWidget {
   Forget_passwordView({super.key});
@@ -28,7 +29,7 @@ class _Forget_passwordViewState extends State<Forget_passwordView> {
               height: 56,
             ),
             Text(
-              'هل نسيت كلمة السر ؟  ',
+              AppLocalizations.of(context)!.forgetpass2,
               style: TextStyle(
                   fontSize: 28,
                   fontFamily: KFont2,
@@ -39,7 +40,7 @@ class _Forget_passwordViewState extends State<Forget_passwordView> {
               height: 12,
             ),
             Text(
-              'قم بإدخال البريد الالكتروني المسجل ضمن التطبيق ,ثم قم بوضع الرمز المؤلف من 5 أرقام الذي سنقوم بإرساله على بريدك     ',
+              AppLocalizations.of(context)!.inputEmail2,
               textAlign: TextAlign.end,
               style: TextStyle(
                   fontSize: 18, fontFamily: KFont2, color: Colors.black54),
@@ -54,9 +55,9 @@ class _Forget_passwordViewState extends State<Forget_passwordView> {
                 // obscureText:obscureText!,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'الرجاء إدخال البريد الإلكتروني';
+                    return AppLocalizations.of(context)!.errorEmail1;
                   } else if (value.isNotEmpty && !value.contains('@')) {
-                    return '@ يجب ان يحتوي البريد الإلكتروني على ';
+                    return AppLocalizations.of(context)!.errorEmail2;
                   }
                   return null;
                 },
@@ -64,7 +65,7 @@ class _Forget_passwordViewState extends State<Forget_passwordView> {
                 decoration: InputDecoration(
                     suffixIcon: Icon(Icons.email),
                     suffixIconColor: Colors.grey,
-                    hintText: 'عنوان البريد الإلكتروني',
+                    hintText: AppLocalizations.of(context)!.emailAdress,
                     hintStyle: const TextStyle(
                         fontSize: 22,
                         fontFamily: KFont2,
@@ -93,7 +94,7 @@ class _Forget_passwordViewState extends State<Forget_passwordView> {
                     GoRouter.of(context).push(AppRouter.KCodeForgetPass);
                   }
                 },
-                text: 'المتابعة',
+                text: AppLocalizations.of(context)!.continu,
                 fontSz: 24,
                 colorfont: KPrimeryColor2,
               ),

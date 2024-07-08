@@ -67,6 +67,8 @@
     "exampro":" Exam program",
     "weekpro":"  Week program",
     "lesson":"statistics",
-    "about":"About us"
+    "about":"About us",
+    "forgetpass2":"Are you forget you password ?",
+    "inputEmail2":"Enter the new email, then put the 5-digit code that we will send to the your mail"
 
 }

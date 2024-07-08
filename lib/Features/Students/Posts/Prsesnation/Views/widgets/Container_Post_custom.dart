@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'Image_Post_custom.dart';
-import 'Like_botton_custom.dart';
-import '../../../../../../constant.dart';
+import 'package:myshop/Features/Students/Posts/Prsesnation/Views/widgets/Image_Post_custom.dart';
+import 'package:myshop/Features/Students/Posts/Prsesnation/Views/widgets/Like_botton_custom.dart';
+import 'package:myshop/constant.dart';
 
 class ContainerPost extends StatelessWidget {
   ContainerPost({super.key});
@@ -21,8 +21,25 @@ class ContainerPost extends StatelessWidget {
         color: KPrimeryColor5,
       ),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [ImagePost(), LikedButtonCustom()],
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: [
+          ImagePost(),
+          SizedBox(
+            height: MediaQuery.of(context).size.height * .01,
+          ),
+          Padding(
+            padding: const EdgeInsets.only(right: 12),
+            child: Text(
+              "صور للنشاط المقام في مدرسة المرح يوم الثلاثاء",
+              style: TextStyle(
+                  fontSize: MediaQuery.of(context).size.aspectRatio * 35,
+                  letterSpacing: MediaQuery.of(context).size.width * 0.001,
+                  color: Colors.black54,
+                  fontFamily: KFont2),
+            ),
+          ),
+          LikedButtonCustom()
+        ],
       ),
     );
   }

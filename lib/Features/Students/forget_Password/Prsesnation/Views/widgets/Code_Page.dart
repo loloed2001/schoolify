@@ -4,6 +4,7 @@ import '../../../../LoginStudent/Presentation/Views/Widgets/button_Widget.dart';
 import 'verification_code.dart';
 import '../../../../../../constant.dart';
 import '../../../../../../core/Utils/app_router.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Code_page extends StatelessWidget {
   const Code_page({super.key});
@@ -18,7 +19,7 @@ class Code_page extends StatelessWidget {
           //Lottie.asset('assets/lottie/Animation - 1711153910692.json')
           Padding(
             padding: const EdgeInsets.only(top: 150),
-            child: Text(' : قم بوضع الرمز ',
+            child: Text(AppLocalizations.of(context)!.putDigit,
                 style: TextStyle(
                     fontSize: 28,
                     fontFamily: KFont2,
@@ -33,7 +34,7 @@ class Code_page extends StatelessWidget {
             padding: const EdgeInsets.only(top: 100),
             child: Center(
               child: CustomButon(
-                text: 'تسجيل الدخول',
+                text: AppLocalizations.of(context)!.login,
                 fontSz: 24,
                 colorfont: KPrimeryColor2,
                 onTap: () {

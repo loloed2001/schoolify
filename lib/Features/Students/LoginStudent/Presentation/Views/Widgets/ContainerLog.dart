@@ -79,15 +79,16 @@ class _ContainerCustomLogState extends State<ContainerCustomLog> {
                         textAlign: TextAlign.start,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
-                            return AppLocalizations.of(context)!.errorusername;
-                          } else if (value.contains(RegExp(r'[0-9]'))) {
-                            return AppLocalizations.of(context)!.errorusername2;
+                            return AppLocalizations.of(context)!.errorEmail1;
+                          } else if (value.isNotEmpty && !value.contains('@')) {
+                            return AppLocalizations.of(context)!.errorEmail2;
                           }
+                          return null;
                         },
                         decoration: InputDecoration(
                           prefixIcon: Icon(Icons.person),
                           prefixIconColor: Colors.grey,
-                          hintText: AppLocalizations.of(context)!.username,
+                          hintText: AppLocalizations.of(context)!.emailAdress,
                           hintStyle: TextStyle(
                             fontWeight: FontWeight.bold,
                             color: Colors.black45,
