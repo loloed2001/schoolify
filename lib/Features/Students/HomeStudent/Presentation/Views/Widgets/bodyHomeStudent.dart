@@ -76,7 +76,7 @@ class _BodyStudentState extends State<BodyStudent> {
                 text: AppLocalizations.of(context)!.post,
               ),
               GButton(
-                icon: Icons.contact_support,
+                icon: Icons.category,
                 text: AppLocalizations.of(context)!.service,
               ),
               GButton(

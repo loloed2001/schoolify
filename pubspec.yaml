@@ -52,6 +52,7 @@ dependencies:
   loading_animation_widget: ^1.2.1
   animated_text_kit: ^4.2.2
   expansion_tile_card: ^3.0.0
+  bloc: ^8.1.4
 
 
 dev_dependencies:

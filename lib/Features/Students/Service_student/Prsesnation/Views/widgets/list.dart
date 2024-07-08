@@ -27,7 +27,7 @@ List name = [
  "الملاحظات",
  "برنامج المذاكرات",
   "برنامج الاسبوع",
- "دروسي"
+ "احصائيات"
 ];
 List<Color> ccolors = [
   Color(0xffffcf2f),
@@ -65,7 +65,7 @@ List<Icon> caticon = [
     size: 30,
   ),
   Icon(
-    Icons.auto_stories_sharp,
+    Icons.incomplete_circle,
     color: Colors.white,
     size: 30,
   ),

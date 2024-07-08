@@ -34,13 +34,13 @@ class PostsPageView extends StatelessWidget {
                           letterSpacing:
                               MediaQuery.of(context).size.width * .006),
                     ),
-                    IconButton(
-                        onPressed: () {},
-                        icon: Icon(
-                          Icons.notifications,
-                          color: KPrimeryColor1,
-                          size: MediaQuery.of(context).size.aspectRatio * 55,
-                        ))
+                    // IconButton(
+                    //     onPressed: () {},
+                    //     icon: Icon(
+                    //       Icons.notifications,
+                    //       color: KPrimeryColor1,
+                    //       size: MediaQuery.of(context).size.aspectRatio * 55,
+                    //     ))
                   ],
                 ),
               ),

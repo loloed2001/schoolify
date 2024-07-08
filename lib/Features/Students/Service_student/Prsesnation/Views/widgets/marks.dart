@@ -3,6 +3,7 @@ import 'package:flutter_gradient_app_bar/flutter_gradient_app_bar.dart';
 import 'package:intl/intl.dart';
 
 import '../../../../../../constant.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class markss extends StatefulWidget {
   const markss({super.key});
@@ -108,11 +109,11 @@ class _markssState extends State<markss> {
               Navigator.pop(context);
             },
             icon: Icon(Icons.arrow_back)),
-        title: Center(
-            child: Text(
-          "العلامات",
-          style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-        )),
+         title: Text(
+                      AppLocalizations.of(context)!.mark,
+                      style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                    ),
+                    centerTitle: true,
       ),
       body: SingleChildScrollView(
         child: Container(

@@ -138,7 +138,7 @@ class Security_View extends StatelessWidget {
                                     height: MediaQuery.of(context).size.height *
                                         .08,
                                     width:
-                                        MediaQuery.of(context).size.width * .8,
+                                        MediaQuery.of(context).size.width * .79,
                                   ),
                                   SizedBox(
                                     width:
@@ -255,7 +255,7 @@ class Security_View extends StatelessWidget {
                                     height: MediaQuery.of(context).size.height *
                                         .08,
                                     width:
-                                        MediaQuery.of(context).size.width * .8,
+                                        MediaQuery.of(context).size.width * .79,
                                   ),
                                   SizedBox(
                                     width:

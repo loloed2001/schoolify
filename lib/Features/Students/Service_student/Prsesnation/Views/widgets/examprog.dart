@@ -37,11 +37,11 @@ class _ExamprogState extends State<Examprog> {
                 Navigator.pop(context);
               },
               icon: Icon(Icons.arrow_back)),
-          title: Center(
-              child: Text(
-            AppLocalizations.of(context)!.exampro,
-            style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-          )),
+          title: Text(
+                      AppLocalizations.of(context)!.exampro,
+                      style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                    ),
+                    centerTitle: true,
         ),
         body: FutureBuilder<List<ExamprogramModel>>(
           builder: (context, snapshot) {
@@ -111,15 +111,15 @@ class _ExamprogState extends State<Examprog> {
                         decoration: BoxDecoration(
                           boxShadow: [
                             BoxShadow(
-                                blurRadius: 6,
+                                blurRadius: 6.5,
                                 color: Colors.grey.withOpacity(0.5),
                                 offset: Offset(8, 3))
                           ],
-                          borderRadius: BorderRadius.circular(18),
+                          borderRadius: BorderRadius.circular(20),
                           border: Border.all(color: KPrimeryColor1, width: 2),
                           color: KPrimeryColor2,
                         ),
-                        height: MediaQuery.of(context).size.height * .2,
+                        height: MediaQuery.of(context).size.height * .9,
                         width: MediaQuery.of(context).size.width * .95,
                         child: Column(
                             crossAxisAlignment: CrossAxisAlignment.end,
@@ -208,6 +208,38 @@ class _ExamprogState extends State<Examprog> {
                                         text: exam[index]
                                             .examprogramModelClass
                                             .name,
+                                        style: TextStyle(
+                                            fontFamily: KFont,
+                                            fontSize: 17,
+                                            color:
+                                                Color.fromARGB(255, 59, 59, 59),
+                                            fontWeight: FontWeight.w600),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(1),
+                                child: RichText(
+                                  text: TextSpan(
+                                    children: [
+                                      TextSpan(
+                                        text: " نوع الاختبار" ":",
+                                        style: TextStyle(
+                                            fontSize: 20,
+                                            fontFamily: KFont,
+                                            fontWeight: FontWeight.bold,
+                                            color: KPrimeryColor1),
+                                      ),
+                                      TextSpan(
+                                        text: "   ",
+                                        style: TextStyle(
+                                            fontSize: 20, color: Colors.black),
+                                      ),
+                                      TextSpan(
+                                        text: '${exam[index].type}',
+                                            
                                         style: TextStyle(
                                             fontFamily: KFont,
                                             fontSize: 17,
