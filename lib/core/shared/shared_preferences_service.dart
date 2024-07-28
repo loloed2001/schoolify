@@ -23,6 +23,14 @@ class SharedPreferencesService {
     await sp.setString('user', user);
   }
 
+  static String? getLangauge() {
+    return sp.getString('language');
+  }
+
+  static Future<void> storeLangauge(String language) async {
+    await sp.setString('language', language);
+  }
+
   static Future<void> storeType(String type) async {
     await sp.setBool('type', true);
   }

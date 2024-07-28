@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
 import 'package:myshop/constant.dart';
 import 'package:myshop/core/Utils/app_router.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:myshop/main.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+import '../../../../../../core/cubit/language_cubit.dart';
 
 class LanguageView extends StatefulWidget {
   const LanguageView({
@@ -66,7 +67,9 @@ class _LanguageViewState extends State<LanguageView> {
             ),
             textWidget(
               lang: AppLocalizations.of(context)!.arabic,
-              ontap: () {},
+              ontap: () {
+                context.read<LanguageCubit>().storeLangauge('ar');
+              },
               image: 'assets/images/syria.png',
             ),
             Divider(
@@ -80,7 +83,9 @@ class _LanguageViewState extends State<LanguageView> {
             ),
             textWidget(
               lang: AppLocalizations.of(context)!.english,
-              ontap: () {},
+              ontap: () {
+                context.read<LanguageCubit>().storeLangauge('en');
+              },
               image: 'assets/images/britain.png',
             ),
             Divider(

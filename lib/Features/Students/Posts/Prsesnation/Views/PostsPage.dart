@@ -87,7 +87,7 @@ class _PostsPageViewState extends State<PostsPageView> {
                             gridDelegate:
                                 SliverGridDelegateWithFixedCrossAxisCount(
                               crossAxisCount: 1,
-                              childAspectRatio: 1.2,
+                              childAspectRatio: 1.1,
                               mainAxisSpacing:
                                   MediaQuery.of(context).size.height * .04,
                             ),

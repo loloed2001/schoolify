@@ -1,12 +1,14 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
-import 'package:like_button/like_button.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:like_button/like_button.dart';
 
 // ignore: must_be_immutable
 class LikedButtonCustom extends StatelessWidget {
   LikedButtonCustom({super.key});
   bool isFavorite = false;
-  int likeCount = 0;
+  int likeCount = Random().nextInt(10);
   @override
   Widget build(BuildContext context) {
     return Padding(

@@ -10,6 +10,7 @@ import 'package:myshop/Features/Students/Posts/Prsesnation/bloc/posts_bloc.dart'
 import 'package:myshop/Features/Students/StudentAccount/data/bloc/users_bloc.dart';
 import 'package:myshop/constant.dart';
 import 'package:myshop/core/Utils/app_router.dart';
+import 'package:myshop/core/cubit/language_cubit.dart';
 import 'package:myshop/core/shared/shared_preferences_service.dart';
 
 void main() async {
@@ -21,7 +22,10 @@ void main() async {
   // var password = _shared.getString('pass');
   // runApp(SchoolApp());
   // runApp(Email != null && password != null ? SchoolApp() : HomeStudentview());
-  runApp(SchoolApp());
+  runApp(BlocProvider(
+    create: (context) => LanguageCubit()..loadLanguage(),
+    child: SchoolApp(),
+  ));
   // print(Email);
   // print(password);
 }
@@ -38,39 +42,45 @@ class _SchoolAppState extends State<SchoolApp> {
     Locale myLocale = View.of(context).platformDispatcher.locale;
     PlatformDispatcher.instance.onLocaleChanged = rebuildOnLocaleChange();
 
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider<AuthBloc>(
-          create: (context) => AuthBloc(),
-        ),
-        BlocProvider<UsersBloc>(
-          create: (context) => UsersBloc(),
-        ),
-        BlocProvider<PostsBloc>(
-          create: (context) => PostsBloc(),
-        ),
-      ],
-      child: MaterialApp.router(
-        builder: BotToastInit(),
-        theme: ThemeData(
-            fontFamily: myLocale.languageCode == 'ar' ? KFont2 : KFont3,
-            scaffoldBackgroundColor: KPrimeryColor5,
-            colorScheme:
-                ColorScheme.fromSwatch().copyWith(secondary: KPrimeryColor4)),
-        // locale: const Locale('ar'),
-        localizationsDelegates: [
-          AppLocalizations.delegate,
-          GlobalMaterialLocalizations.delegate,
-          GlobalWidgetsLocalizations.delegate,
-          GlobalCupertinoLocalizations.delegate,
-        ],
-        supportedLocales: [
-          Locale('en'), // English
-          Locale('ar'),
-        ],
-        routerConfig: AppRouter.router,
-        debugShowCheckedModeBanner: false,
-      ),
+    return BlocConsumer<LanguageCubit, LanguageState>(
+      listener: (context, state) {},
+      builder: (context, state) {
+        return MultiBlocProvider(
+          providers: [
+            BlocProvider<AuthBloc>(
+              create: (context) => AuthBloc(),
+            ),
+            BlocProvider<UsersBloc>(
+              create: (context) => UsersBloc(),
+            ),
+            BlocProvider<PostsBloc>(
+              create: (context) => PostsBloc(),
+            ),
+          ],
+          child: MaterialApp.router(
+            builder: BotToastInit(),
+            locale: Locale(state.language),
+            theme: ThemeData(
+                fontFamily: state.language == 'ar' ? KFont2 : KFont3,
+                scaffoldBackgroundColor: KPrimeryColor5,
+                colorScheme: ColorScheme.fromSwatch()
+                    .copyWith(secondary: KPrimeryColor4)),
+            // locale: const Locale('ar'),
+            localizationsDelegates: [
+              AppLocalizations.delegate,
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+            ],
+            supportedLocales: [
+              Locale('en'), // English
+              Locale('ar'),
+            ],
+            routerConfig: AppRouter.router,
+            debugShowCheckedModeBanner: false,
+          ),
+        );
+      },
     );
   }
 }

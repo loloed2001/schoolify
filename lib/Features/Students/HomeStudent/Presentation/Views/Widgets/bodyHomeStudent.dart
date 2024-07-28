@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-
 import 'package:line_icons/line_icons.dart';
 
+import '../../../../../../constant.dart';
 import '../../../../Chat/Prsesnation/Views/ChatPage.dart';
 import '../../../../Posts/Prsesnation/Views/PostsPage.dart';
 import '../../../../Service_student/Prsesnation/Views/Homepage.dart';
 import '../../../../StudentAccount/Presentation/Views/StudenAccountPage.dart';
-import '../../../../../../constant.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class BodyStudent extends StatefulWidget {
   const BodyStudent({super.key});

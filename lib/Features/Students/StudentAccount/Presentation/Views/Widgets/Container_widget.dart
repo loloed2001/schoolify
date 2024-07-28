@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 import 'package:lottie/lottie.dart';
 import 'package:myshop/constant.dart';
 import 'package:myshop/core/Utils/app_router.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:myshop/core/shared/shared_preferences_service.dart';
+import 'package:myshop/core/widgets/yes_no_dialog.dart';
 
 class ContainerWidget extends StatelessWidget {
   ContainerWidget({super.key});
@@ -138,7 +140,18 @@ class ContainerWidget extends StatelessWidget {
                 color: KPrimeryColor4,
               ),
               GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  showAdaptiveDialog(
+                      context: context,
+                      builder: (context) {
+                        return YesNoDialog(
+                            title: 'Are You Sure?',
+                            onTapYes: () async {
+                              await SharedPreferencesService.clearAll();
+                              GoRouter.of(context).go(AppRouter.KSplashPage);
+                            });
+                      });
+                },
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -169,11 +182,11 @@ class ContainerWidget extends StatelessWidget {
                 children: [
                   Lottie.asset(
                     "assets/lottie/insta.json",
-                  width: MediaQuery.of(context).size.width * .08,
+                    width: MediaQuery.of(context).size.width * .08,
                   ),
                   SizedBox(
-                      width: MediaQuery.of(context).size.width * .09,
-                      ),
+                    width: MediaQuery.of(context).size.width * .09,
+                  ),
                   Lottie.asset(
                     "assets/lottie/face.json",
                     width: MediaQuery.of(context).size.width * .08,

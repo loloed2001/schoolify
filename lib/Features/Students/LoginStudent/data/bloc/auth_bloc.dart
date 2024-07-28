@@ -27,6 +27,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       if (isAuth == null) {
         emit(AuthInitial());
       } else {
+        print(jsonDecode(isAuth));
         emit(Authsucss(auth: Authmodel.fromJson(jsonDecode(isAuth))));
       }
     });

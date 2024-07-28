@@ -1,10 +1,10 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:myshop/Features/DialogLogin/Presentation/Widget/CircleImage.dart';
-import 'package:myshop/Features/Students/LoginStudent/Presentation/Views/Widgets/ContainerLog.dart';
 import 'package:myshop/Features/Students/StudentAccount/Presentation/Views/Widgets/Container_widget.dart';
 import 'package:myshop/constant.dart';
-import 'package:myshop/main.dart';
+
+import '../../../LoginStudent/data/bloc/auth_bloc.dart';
 
 class StudentAccountView extends StatelessWidget {
   const StudentAccountView({super.key});
@@ -39,13 +39,31 @@ class StudentAccountView extends StatelessWidget {
                 SizedBox(
                   width: MediaQuery.of(context).size.width * .05,
                 ),
-                Text(
-                  'تيم لاجين',
-                  style: TextStyle(
-                      fontFamily: KFont2,
-                      fontSize: MediaQuery.of(context).size.aspectRatio * 70,
-                      color: KPrimeryColor2,
-                      fontWeight: FontWeight.bold),
+                BlocBuilder<AuthBloc, AuthState>(
+                  builder: (context, state) {
+                    return (state is Authsucss)
+                        ? Text(
+                            (state.auth!.firstName ?? '') +
+                                (state.auth!.lastName ?? ''),
+                            style: TextStyle(
+                                fontFamily: KFont2,
+                                fontSize:
+                                    MediaQuery.of(context).size.aspectRatio *
+                                        70,
+                                color: KPrimeryColor2,
+                                fontWeight: FontWeight.bold),
+                          )
+                        : Text(
+                            'تيم لاجين',
+                            style: TextStyle(
+                                fontFamily: KFont2,
+                                fontSize:
+                                    MediaQuery.of(context).size.aspectRatio *
+                                        70,
+                                color: KPrimeryColor2,
+                                fontWeight: FontWeight.bold),
+                          );
+                  },
                 ),
               ],
             ),

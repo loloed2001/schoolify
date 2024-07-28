@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:lottie/lottie.dart';
-import 'package:myshop/Features/Students/StudentAccount/data/models/user_datasource.dart';
-import 'package:myshop/Features/Students/StudentAccount/data/models/user_models.dart';
+import 'package:myshop/Features/Students/LoginStudent/data/bloc/auth_bloc.dart';
 import 'package:myshop/constant.dart';
 import 'package:myshop/core/Utils/app_router.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Security_View extends StatelessWidget {
   const Security_View({super.key});
@@ -36,10 +36,9 @@ class Security_View extends StatelessWidget {
                 fontSize: MediaQuery.of(context).size.aspectRatio * 55,
                 letterSpacing: MediaQuery.of(context).size.width * .002)),
       ),
-      body: FutureBuilder<List<UserModel>>(
-        future: getStudentbyId().getUserList(),
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
+      body: BlocBuilder<AuthBloc, AuthState>(
+        builder: (context, state) {
+          if (state is Authsucss) {
             // List<UserModel> users = snapshot.data!;
             return ListView.builder(
                 itemCount: 1,
@@ -105,8 +104,7 @@ class Security_View extends StatelessWidget {
                                                 Icon(Icons.email_outlined),
                                             prefixIconColor: Colors.grey,
                                             border: InputBorder.none,
-                                            hintText:
-                                                snapshot.data![index].email,
+                                            hintText: state.auth!.email,
                                             hintStyle: TextStyle(
                                                 fontSize: MediaQuery.of(context)
                                                         .size
@@ -144,19 +142,19 @@ class Security_View extends StatelessWidget {
                                     width:
                                         MediaQuery.of(context).size.width * .02,
                                   ),
-                                  IconButton(
-                                      onPressed: () {
-                                        GoRouter.of(context)
-                                            .push(AppRouter.KemailChange);
-                                      },
-                                      icon: Icon(
-                                        Icons.edit,
-                                        color: KPrimeryColor1,
-                                        size: MediaQuery.of(context)
-                                                .size
-                                                .aspectRatio *
-                                            60,
-                                      )),
+                                  // IconButton(
+                                  //     onPressed: () {
+                                  //       GoRouter.of(context)
+                                  //           .push(AppRouter.KemailChange);
+                                  //     },
+                                  //     icon: Icon(
+                                  //       Icons.edit,
+                                  //       color: KPrimeryColor1,
+                                  //       size: MediaQuery.of(context)
+                                  //               .size
+                                  //               .aspectRatio *
+                                  //           60,
+                                  //     )),
                                 ],
                               ),
                             ),
@@ -222,8 +220,7 @@ class Security_View extends StatelessWidget {
                                             prefixIcon: Icon(Icons.password),
                                             prefixIconColor: Colors.grey,
                                             border: InputBorder.none,
-                                            hintText:
-                                                snapshot.data![index].password,
+                                            hintText: '********',
                                             hintStyle: TextStyle(
                                                 fontSize: MediaQuery.of(context)
                                                         .size
@@ -283,7 +280,7 @@ class Security_View extends StatelessWidget {
                     ),
                   );
                 });
-          } else if (snapshot.hasError) {
+          } else if (state is Authfaliuer) {
             return Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -291,7 +288,7 @@ class Security_View extends StatelessWidget {
                 children: [
                   Lottie.asset("assets/lottie/error1.json",
                       height: MediaQuery.of(context).size.height * .1),
-                  Text("${snapshot.error}")
+                  Text("Some Thing Error")
                 ],
               ),
             );
