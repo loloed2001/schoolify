@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:myshop/Features/Students/StudentAccount/Presentation/Views/Widgets/pichart.dart';
 import 'package:myshop/Features/Students/StudentAccount/Presentation/Views/Widgets/picharthodor.dart';
-import 'package:myshop/Features/Students/StudentAccount/data/models/user_datasource.dart';
+import 'package:myshop/Features/Students/StudentAccount/data/datasource/user_datasource.dart';
 import 'package:myshop/Features/Students/StudentAccount/data/models/user_models.dart';
 import 'package:myshop/constant.dart';
 import 'package:myshop/core/Utils/app_router.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Info_student extends StatelessWidget {
   const Info_student({super.key});
@@ -38,7 +38,7 @@ class Info_student extends StatelessWidget {
                 letterSpacing: MediaQuery.of(context).size.width * .002)),
       ),
       body: FutureBuilder<List<UserModel>>(
-          future: getStudentbyId().getUserList(),
+          future: UserDatasource().getUserList(),
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               //List<UserModel> users = snapshot.data!;

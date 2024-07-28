@@ -7,6 +7,17 @@ extension IntExtensions on int? {
     return this ?? value;
   }
 
+  String get getDay => switch (this) {
+        0 => 'Saturday',
+        1 => 'Sunday',
+        2 => 'Monday',
+        3 => 'Tuesday',
+        4 => 'Wednesday',
+        5 => 'Thursday',
+        6 => 'Firday',
+        _ => ''
+      };
+
   /// Leaves given height of space
   Widget get height => SizedBox(height: this?.toDouble());
 
@@ -15,7 +26,6 @@ extension IntExtensions on int? {
 
   /// HTTP status code
   bool isSuccessful() => this! >= 200 && this! <= 206;
-
 
   /// Returns microseconds duration
   /// 5.microseconds

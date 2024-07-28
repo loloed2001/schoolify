@@ -1,15 +1,20 @@
 part of 'users_bloc.dart';
 
-@immutable
-sealed class UsersState {}
+class UsersState {
+  final RequestStatus weeklyProgramStatus;
+  final List<WeeklyProgram> program;
+  UsersState({
+    this.weeklyProgramStatus = RequestStatus.init,
+    this.program = const [],
+  });
 
-final class UsersInitial extends UsersState {}
-
-final class UsersLoading extends UsersState {}
-
-final class UsersSuccess extends UsersState {
-  final List<UserModel> usesr;
-  UsersSuccess({this.usesr = const []});
+  UsersState copyWith({
+    RequestStatus? weeklyProgramStatus,
+    List<WeeklyProgram>? program,
+  }) {
+    return UsersState(
+      weeklyProgramStatus: weeklyProgramStatus ?? this.weeklyProgramStatus,
+      program: program ?? this.program,
+    );
+  }
 }
-
-final class UsersFaliure extends UsersState {}
