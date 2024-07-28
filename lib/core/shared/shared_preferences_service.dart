@@ -15,12 +15,20 @@ class SharedPreferencesService {
     return sp.getString('token');
   }
 
-  static Future<void> storeFirstTime() async {
-    await sp.setBool('firstTime', true);
+  static String? getUser() {
+    return sp.getString('user');
+  }
+
+  static Future<void> storeUser(String user) async {
+    await sp.setString('user', user);
+  }
+
+  static Future<void> storeType(String type) async {
+    await sp.setBool('type', true);
   }
 
   static bool? getFirstTime() {
-    return sp.getBool('firstTime');
+    return sp.getBool('type');
   }
 
   static Future<bool> clearAll() async {

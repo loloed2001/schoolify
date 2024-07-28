@@ -1,9 +1,27 @@
 import 'package:flutter/material.dart';
-import 'widgets/Container_Post_custom.dart';
-import '../../../../../constant.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:myshop/core/widgets/main_error_widget.dart';
 
-class PostsPageView extends StatelessWidget {
+import '../../../../../constant.dart';
+import '../../../../../core/shared/request_status.dart';
+import '../bloc/posts_bloc.dart';
+import 'widgets/Container_Post_custom.dart';
+
+class PostsPageView extends StatefulWidget {
   PostsPageView({super.key});
+
+  @override
+  State<PostsPageView> createState() => _PostsPageViewState();
+}
+
+class _PostsPageViewState extends State<PostsPageView> {
+  @override
+  void initState() {
+    context.read<PostsBloc>().add(IndexPostsEvent());
+
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,17 +70,33 @@ class PostsPageView extends StatelessWidget {
             padding: EdgeInsets.symmetric(
               horizontal: MediaQuery.of(context).size.width * .03,
             ),
-            child: GridView.builder(
-
-                //physics: const NeverScrollableScrollPhysics(),
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 1,
-                  childAspectRatio: 1.2,
-                  mainAxisSpacing: MediaQuery.of(context).size.height * .04,
-                ),
-                itemBuilder: (context, index) {
-                  return ContainerPost();
-                }),
+            child: BlocBuilder<PostsBloc, PostsState>(
+              builder: (context, state) {
+                return state.status == RequestStatus.loading
+                    ? Center(
+                        child: CircularProgressIndicator.adaptive(),
+                      )
+                    : state.status == RequestStatus.failed
+                        ? Center(
+                            child: MainErrorWidget(onPressed: () {
+                              context.read<PostsBloc>().add(IndexPostsEvent());
+                            }),
+                          )
+                        : GridView.builder(
+                            //physics: const NeverScrollableScrollPhysics(),
+                            gridDelegate:
+                                SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 1,
+                              childAspectRatio: 1.2,
+                              mainAxisSpacing:
+                                  MediaQuery.of(context).size.height * .04,
+                            ),
+                            itemCount: state.posts.length,
+                            itemBuilder: (context, index) {
+                              return ContainerPost(post: state.posts[index]);
+                            });
+              },
+            ),
           ),
         ),
       ]

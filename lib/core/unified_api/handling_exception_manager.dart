@@ -8,12 +8,12 @@ import '../error/failures.dart';
 
 mixin HandlingExceptionManager {
   Future<Either<Failure, T>> wrapHandling<T>({
-    required Future<Right<Failure, T>> Function() tryCall,
+    required Future<T> Function() tryCall,
     Future<T?> Function()? tryCallLocal,
   }) async {
     try {
       final right = await tryCall();
-      return (right);
+      return Right(right);
     } on UnauthenticatedException catch (e) {
       log("<<UnauthenticatedException>>");
       return Left(UnauthenticatedFailure(e.message));

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../../../../../../constant.dart';
 
 class ChatBubble extends StatelessWidget {
@@ -41,15 +42,15 @@ class ChatBubble extends StatelessWidget {
 
 class ChatBubbleFreind extends StatelessWidget {
   const ChatBubbleFreind({
-    super.key,
-  });
-
+    Key? key,
+    required this.message,
+  }) : super(key: key);
+  final String message;
   @override
   Widget build(BuildContext context) {
     return Align(
       alignment: Alignment.centerRight,
       child: Container(
-        // height: MediaQuery.of(context).size.height * .07,
         padding: EdgeInsets.only(
             left: MediaQuery.of(context).size.width * .12,
             right: MediaQuery.of(context).size.width * .07,
@@ -68,7 +69,7 @@ class ChatBubbleFreind extends StatelessWidget {
           color: KPrimeryColor1,
         ),
         child: Text(
-          'مرحبا',
+          message,
           style: TextStyle(
             fontFamily: KFont2,
             fontWeight: FontWeight.w400,

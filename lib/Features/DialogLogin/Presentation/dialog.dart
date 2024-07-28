@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
+import 'package:myshop/core/shared/shared_preferences_service.dart';
 
 import '../../../constant.dart';
 import '../../../core/Utils/app_router.dart';
@@ -41,7 +42,9 @@ class DialogCustom extends StatelessWidget {
                   children: [
                     CircleImageCustom(
                       ontap: () {
-                        GoRouter.of(context).push(AppRouter.KStudentLoginPage);
+                        SharedPreferencesService.storeType('Students');
+
+                        GoRouter.of(context).go(AppRouter.KStudentLoginPage);
                       },
                       image: AssetImage('assets/images/Students.png'),
                     ),
@@ -66,10 +69,10 @@ class DialogCustom extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     CircleImageCustom(
-                      ontap: () {},
-                      // ontap: () {
-                      //   GoRouter.of(context).push(AppRouter.KParentsLoginpage);
-                      // },
+                      ontap: () {
+                        SharedPreferencesService.storeType('Parents');
+                        GoRouter.of(context).push(AppRouter.KStudentLoginPage);
+                      },
                       image: AssetImage('assets/images/family.png'),
                     ),
                     SizedBox(

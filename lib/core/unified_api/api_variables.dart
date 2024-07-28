@@ -23,4 +23,6 @@ class ApiVariables {
   }
 
   Uri getClasses() => _mainUri(path: 'Classes/GetAll');
+  Uri getPosts() => _mainUri(path: 'Posts/GetAllPosts');
+  Uri getAdverts() => _mainUri(path: 'Posts/GetAllAdvert');
 }

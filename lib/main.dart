@@ -3,27 +3,19 @@ import 'dart:ui';
 import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:go_router/go_router.dart';
-
-import 'package:myshop/Features/Students/HomeStudent/Presentation/Views/HomeStudentPage.dart';
-import 'package:myshop/Features/Students/LoginStudent/Presentation/Views/loginPageStudent.dart';
 import 'package:myshop/Features/Students/LoginStudent/data/bloc/auth_bloc.dart';
+import 'package:myshop/Features/Students/Posts/Prsesnation/bloc/posts_bloc.dart';
 import 'package:myshop/Features/Students/StudentAccount/data/bloc/users_bloc.dart';
 import 'package:myshop/constant.dart';
 import 'package:myshop/core/Utils/app_router.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:myshop/core/Utils/app_router.dart';
-import 'package:myshop/core/Utils/app_router.dart';
-import 'package:myshop/core/Utils/app_router.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-
-import 'core/Utils/app_router.dart';
+import 'package:myshop/core/shared/shared_preferences_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized(); // Wait for initialization
   // SharedPreferences _shared = await SharedPreferences.getInstance();
-
+  await SharedPreferencesService.init();
   // var Email = _shared.getString('email');
 
   // var password = _shared.getString('pass');
@@ -53,6 +45,9 @@ class _SchoolAppState extends State<SchoolApp> {
         ),
         BlocProvider<UsersBloc>(
           create: (context) => UsersBloc(),
+        ),
+        BlocProvider<PostsBloc>(
+          create: (context) => PostsBloc(),
         ),
       ],
       child: MaterialApp.router(
