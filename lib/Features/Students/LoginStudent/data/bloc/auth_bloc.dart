@@ -2,9 +2,11 @@ import 'dart:convert';
 
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
-import 'package:myshop/Features/Students/LoginStudent/data/models/auth_datasource.dart';
-import 'package:myshop/Features/Students/LoginStudent/data/models/auth_models.dart';
-import 'package:myshop/core/shared/shared_preferences_service.dart';
+
+import '../../../../../core/shared/shared_preferences_service.dart';
+import '../../../StudentAccount/data/models/user_models.dart';
+import '../models/auth_datasource.dart';
+import '../models/auth_models.dart';
 
 part 'auth_event.dart';
 part 'auth_state.dart';
@@ -23,12 +25,27 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       }
     });
     on<CheckAuthEvent>((event, emit) async {
-      final isAuth = SharedPreferencesService.getUser();
-      if (isAuth == null) {
-        emit(AuthInitial());
-      } else {
-        print(jsonDecode(isAuth));
-        emit(Authsucss(auth: Authmodel.fromJson(jsonDecode(isAuth))));
+      final isParents = (SharedPreferencesService.getType() ?? '') == 'Parents';
+      {
+        final isAuth = SharedPreferencesService.getUser();
+
+        if (isAuth == null) {
+          emit(AuthInitial());
+        } else {
+          if (isParents) {
+            final childs = userModelFromJson(
+                (SharedPreferencesService.getChilds() ?? '[]'));
+            emit(
+              Authsucss(
+                  auth: Authmodel.fromJson(
+                    jsonDecode(isAuth),
+                  ),
+                  childs: childs),
+            );
+          } else {
+            emit(Authsucss(auth: Authmodel.fromJson(jsonDecode(isAuth))));
+          }
+        }
       }
     });
   }

@@ -4,9 +4,9 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:lottie/lottie.dart';
-import 'package:myshop/Features/Students/LoginStudent/data/bloc/auth_bloc.dart';
-import 'package:myshop/constant.dart';
-import 'package:myshop/core/Utils/app_router.dart';
+import '../../../../LoginStudent/data/bloc/auth_bloc.dart';
+import '../../../../../../constant.dart';
+import '../../../../../../core/Utils/app_router.dart';
 
 class Security_View extends StatelessWidget {
   const Security_View({super.key});

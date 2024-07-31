@@ -4,11 +4,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_gradient_app_bar/flutter_gradient_app_bar.dart';
 import 'package:intl/intl.dart';
-import 'package:myshop/Features/Students/StudentAccount/data/bloc/users_bloc.dart';
-import 'package:myshop/core/shared/request_status.dart';
-import 'package:myshop/core/widgets/main_error_widget.dart';
 
 import '../../../../../../constant.dart';
+import '../../../../../../core/shared/request_status.dart';
+import '../../../../../../core/shared/shared_preferences_service.dart';
+import '../../../../../../core/widgets/main_error_widget.dart';
+import '../../../../LoginStudent/data/bloc/auth_bloc.dart';
+import '../../../../StudentAccount/data/bloc/users_bloc.dart';
 
 class Examprog extends StatefulWidget {
   const Examprog({super.key});
@@ -19,10 +21,33 @@ class Examprog extends StatefulWidget {
 
 class _ExamprogState extends State<Examprog> {
   DateTime? selectedDate = DateTime.now();
+  late ValueNotifier<int?> selectedChild;
   @override
   void initState() {
     super.initState();
-    context.read<UsersBloc>().add(GetExamsEvent(id: 18));
+    if (SharedPreferencesService.getType() == 'Parents') {
+      selectedChild = ValueNotifier(
+          (context.read<AuthBloc>().state as Authsucss)
+                  .childs
+                  .firstOrNull
+                  ?.id ??
+              1);
+      context.read<UsersBloc>().add(
+            GetExamsEvent(
+              id: (context.read<AuthBloc>().state as Authsucss)
+                      .childs
+                      .firstOrNull
+                      ?.id ??
+                  1,
+            ),
+          );
+    } else {
+      context.read<UsersBloc>().add(
+            GetExamsEvent(
+              id: (context.read<AuthBloc>().state as Authsucss).auth!.id!,
+            ),
+          );
+    }
   }
 
   @override
@@ -64,6 +89,50 @@ class _ExamprogState extends State<Examprog> {
             ),
             body: state.examsStatus == RequestStatus.success
                 ? Column(children: [
+                    if (SharedPreferencesService.getType() == 'Parents')
+                      Padding(
+                        padding: const EdgeInsets.all(10),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            ValueListenableBuilder(
+                                valueListenable: selectedChild,
+                                builder: (context, value, _) {
+                                  return DropdownButton<int>(
+                                      dropdownColor: KPrimeryColor2,
+                                      style: TextStyle(
+                                          color: KPrimeryColor1,
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.w600),
+                                      alignment: Alignment.centerRight,
+                                      value: value,
+                                      items: (context.read<AuthBloc>().state
+                                              as Authsucss)
+                                          .childs
+                                          .map((k) {
+                                        return DropdownMenuItem(
+                                          child: Text(k.firstName!),
+                                          value: k.id!,
+                                        );
+                                      }).toList(),
+                                      onChanged: (item) {
+                                        selectedChild.value = item!;
+                                        context
+                                            .read<UsersBloc>()
+                                            .add(GetExamsEvent(id: item));
+                                      });
+                                }),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 10),
+                              child: Text(
+                                "اختار الطالب",
+                                style:
+                                    TextStyle(fontFamily: KFont3, fontSize: 20),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Row(
@@ -297,7 +366,9 @@ class _ExamprogState extends State<Examprog> {
                 : state.examsStatus == RequestStatus.failed
                     ? Center(
                         child: MainErrorWidget(onPressed: () {
-                          context.read<UsersBloc>().add(GetExamsEvent(id: 18));
+                          context
+                              .read<UsersBloc>()
+                              .add(GetExamsEvent(id: selectedChild.value!));
                         }),
                       )
                     : Center(

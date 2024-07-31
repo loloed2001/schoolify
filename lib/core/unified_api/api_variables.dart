@@ -25,6 +25,9 @@ class ApiVariables {
   Uri getClasses() => _mainUri(path: 'Classes/GetAll');
   Uri getPosts() => _mainUri(path: 'Posts/GetAllPosts');
   Uri getAdverts() => _mainUri(path: 'Posts/GetAllAdvert');
+  Uri getUsers(int id) => _mainUri(
+      path: 'Students/GetAllStudentsByParentId',
+      queryParameters: {'parentId': '$id'});
   Uri getWeeklyProgram(int id) => _mainUri(
       path: 'WeeklyProggram/GetByStudent',
       queryParameters: {'studentId': '$id'});

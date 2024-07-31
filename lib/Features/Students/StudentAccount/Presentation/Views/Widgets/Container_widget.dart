@@ -3,10 +3,10 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 import 'package:lottie/lottie.dart';
-import 'package:myshop/constant.dart';
-import 'package:myshop/core/Utils/app_router.dart';
-import 'package:myshop/core/shared/shared_preferences_service.dart';
-import 'package:myshop/core/widgets/yes_no_dialog.dart';
+import '../../../../../../constant.dart';
+import '../../../../../../core/Utils/app_router.dart';
+import '../../../../../../core/shared/shared_preferences_service.dart';
+import '../../../../../../core/widgets/yes_no_dialog.dart';
 
 class ContainerWidget extends StatelessWidget {
   ContainerWidget({super.key});

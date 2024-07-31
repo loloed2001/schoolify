@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:myshop/Features/Students/LoginStudent/data/bloc/auth_bloc.dart';
-import 'package:myshop/core/Utils/app_router.dart';
+import '../../../../Students/LoginStudent/data/bloc/auth_bloc.dart';
+import '../../../../../core/Utils/app_router.dart';
 
 import '../../../../DialogLogin/Presentation/dialog.dart';
 

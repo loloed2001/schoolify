@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_gradient_app_bar/flutter_gradient_app_bar.dart';
-import 'package:myshop/constant.dart';
-import 'package:myshop/core/shared/request_status.dart';
-import 'package:myshop/core/widgets/main_error_widget.dart';
 
+import '../../../../../../constant.dart';
+import '../../../../../../core/shared/request_status.dart';
+import '../../../../../../core/shared/shared_preferences_service.dart';
+import '../../../../../../core/widgets/main_error_widget.dart';
+import '../../../../LoginStudent/data/bloc/auth_bloc.dart';
 import '../../../../StudentAccount/data/bloc/users_bloc.dart';
 
 class Weekprog extends StatefulWidget {
@@ -25,11 +27,34 @@ class _WeekprogState extends State<Weekprog> {
   };
 
   ValueNotifier<int> selectedDay = ValueNotifier(0);
+  late ValueNotifier<int?> selectedChild;
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    context.read<UsersBloc>().add(GetUserProgramEvent(id: 18));
+    if (SharedPreferencesService.getType() == 'Parents') {
+      selectedChild = ValueNotifier(
+          (context.read<AuthBloc>().state as Authsucss)
+                  .childs
+                  .firstOrNull
+                  ?.id ??
+              1);
+      context.read<UsersBloc>().add(
+            GetUserProgramEvent(
+              id: (context.read<AuthBloc>().state as Authsucss)
+                      .childs
+                      .firstOrNull
+                      ?.id ??
+                  1,
+            ),
+          );
+    } else {
+      context.read<UsersBloc>().add(
+            GetUserProgramEvent(
+              id: (context.read<AuthBloc>().state as Authsucss).auth!.id!,
+            ),
+          );
+    }
   }
 
   @override
@@ -65,7 +90,7 @@ class _WeekprogState extends State<Weekprog> {
                     child: MainErrorWidget(onPressed: () {
                       context
                           .read<UsersBloc>()
-                          .add(GetUserProgramEvent(id: 18));
+                          .add(GetUserProgramEvent(id: selectedChild.value!));
                     }),
                   )
                 : state.weeklyProgramStatus == RequestStatus.success
@@ -108,7 +133,7 @@ class _WeekprogState extends State<Weekprog> {
                                             padding:
                                                 const EdgeInsets.only(left: 10),
                                             child: Text(
-                                              "اختار اليوم",
+                                              "اختار الطالب",
                                               style: TextStyle(
                                                   fontFamily: KFont3,
                                                   fontSize: 20),

@@ -1,9 +1,9 @@
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
-import 'package:myshop/Features/Students/Posts/data/model/adverts_model.dart';
-import 'package:myshop/Features/Students/Posts/data/model/post_model.dart';
-import 'package:myshop/Features/Students/Posts/data/repo/posts_repo.dart';
-import 'package:myshop/core/shared/request_status.dart';
+import '../../data/model/adverts_model.dart';
+import '../../data/model/post_model.dart';
+import '../../data/repo/posts_repo.dart';
+import '../../../../../core/shared/request_status.dart';
 
 part 'posts_event.dart';
 part 'posts_state.dart';

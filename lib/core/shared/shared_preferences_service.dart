@@ -23,6 +23,14 @@ class SharedPreferencesService {
     await sp.setString('user', user);
   }
 
+  static String? getChilds() {
+    return sp.getString('childs');
+  }
+
+  static Future<void> storeChilds(String childs) async {
+    await sp.setString('childs', childs);
+  }
+
   static String? getLangauge() {
     return sp.getString('language');
   }
@@ -32,11 +40,11 @@ class SharedPreferencesService {
   }
 
   static Future<void> storeType(String type) async {
-    await sp.setBool('type', true);
+    await sp.setString('type', type);
   }
 
-  static bool? getFirstTime() {
-    return sp.getBool('type');
+  static String? getType() {
+    return sp.getString('type');
   }
 
   static Future<bool> clearAll() async {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myshop/core/extensions/context_extensions.dart';
+import '../extensions/context_extensions.dart';
 import 'package:shimmer/shimmer.dart';
 
 class ShimmerWidget extends StatelessWidget {

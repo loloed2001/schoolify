@@ -3,8 +3,8 @@ import 'dart:ui';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:myshop/Features/Students/StudentAccount/Presentation/Views/Widgets/ExpansionTile.dart';
-import 'package:myshop/constant.dart';
+import 'ExpansionTile.dart';
+import '../../../../../../constant.dart';
 
 class About extends StatefulWidget {
   const About({super.key});

@@ -1,8 +1,10 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
-import 'package:myshop/Features/Students/StudentAccount/data/models/exams_model.dart';
-import 'package:myshop/Features/Students/StudentAccount/data/repo/user_repo.dart';
+import '../models/exams_model.dart';
+import '../models/user_models.dart';
+import '../repo/user_repo.dart';
+import '../../../../../core/shared/shared_preferences_service.dart';
 
 import '../../../../../core/shared/request_status.dart';
 import '../models/dawam_model.dart';
@@ -72,6 +74,12 @@ class UsersBloc extends Bloc<UsersEvent, UsersState> {
         emit(state.copyWith(dawamStatus: RequestStatus.failed));
       }, (r) {
         emit(state.copyWith(dawamStatus: RequestStatus.success, dawam: r));
+      });
+    });
+    on<GetAllChilds>((event, emit) async {
+      final result = await UserRepo().getChilds(event.id);
+      result.fold((l) {}, (r) {
+        SharedPreferencesService.storeChilds(userModelToJson(r));
       });
     });
   }

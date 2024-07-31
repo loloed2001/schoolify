@@ -47,3 +47,10 @@ class GetDawamEvent extends UsersEvent {
     required this.id,
   });
 }
+
+class GetAllChilds extends UsersEvent {
+  final int id;
+  GetAllChilds({
+    required this.id,
+  });
+}

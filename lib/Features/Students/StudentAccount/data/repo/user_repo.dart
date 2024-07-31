@@ -1,17 +1,24 @@
 import 'package:dartz/dartz.dart';
-import 'package:myshop/Features/Students/StudentAccount/data/datasource/user_datasource.dart';
-import 'package:myshop/Features/Students/StudentAccount/data/models/dawam_model.dart';
-import 'package:myshop/Features/Students/StudentAccount/data/models/weekly_program_model.dart';
+import '../datasource/user_datasource.dart';
+import '../models/dawam_model.dart';
+import '../models/weekly_program_model.dart';
 
 import '../../../../../core/error/failures.dart';
 import '../../../../../core/unified_api/handling_exception_manager.dart';
 import '../models/exams_model.dart';
 import '../models/marks_model.dart';
+import '../models/user_models.dart';
 
 class UserRepo with HandlingExceptionManager {
   Future<Either<Failure, List<WeeklyProgram>>> getWeeklyProgram(int id) async {
     return wrapHandling(tryCall: () async {
       return await UserDatasource().getWeeklyProgram(id);
+    });
+  }
+
+  Future<Either<Failure, List<UserModel>>> getChilds(int id) async {
+    return wrapHandling(tryCall: () async {
+      return await UserDatasource().getUserList(id);
     });
   }
 

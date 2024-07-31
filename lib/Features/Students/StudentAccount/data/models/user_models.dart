@@ -21,6 +21,11 @@ class UserModel {
   final Class? userModelClass;
   final Class? section;
   final Parent? parent;
+  final int? isPresent;
+  final int? allPresent;
+  final int? percentAge;
+  final DateTime? creationDate;
+  final int? mark;
 
   UserModel({
     this.id,
@@ -33,6 +38,11 @@ class UserModel {
     this.userModelClass,
     this.section,
     this.parent,
+    this.isPresent,
+    this.allPresent,
+    this.percentAge,
+    this.creationDate,
+    this.mark,
   });
 
   factory UserModel.fromJson(Map<String, dynamic> json) => UserModel(
@@ -49,6 +59,13 @@ class UserModel {
         section:
             json["section"] == null ? null : Class.fromJson(json["section"]),
         parent: json["parent"] == null ? null : Parent.fromJson(json["parent"]),
+        isPresent: json["isPresent"],
+        allPresent: json["allPresent"],
+        percentAge: json["percentAge"],
+        creationDate: json["creationDate"] == null
+            ? null
+            : DateTime.parse(json["creationDate"]),
+        mark: json["mark"],
       );
 
   Map<String, dynamic> toJson() => {
@@ -62,6 +79,11 @@ class UserModel {
         "class": userModelClass?.toJson(),
         "section": section?.toJson(),
         "parent": parent?.toJson(),
+        "isPresent": isPresent,
+        "allPresent": allPresent,
+        "percentAge": percentAge,
+        "creationDate": creationDate?.toIso8601String(),
+        "mark": mark,
       };
 }
 

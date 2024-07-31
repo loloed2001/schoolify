@@ -5,13 +5,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:myshop/Features/Students/LoginStudent/data/bloc/auth_bloc.dart';
-import 'package:myshop/Features/Students/Posts/Prsesnation/bloc/posts_bloc.dart';
-import 'package:myshop/Features/Students/StudentAccount/data/bloc/users_bloc.dart';
-import 'package:myshop/constant.dart';
-import 'package:myshop/core/Utils/app_router.dart';
-import 'package:myshop/core/cubit/language_cubit.dart';
-import 'package:myshop/core/shared/shared_preferences_service.dart';
+
+import 'Features/Students/LoginStudent/data/bloc/auth_bloc.dart';
+import 'Features/Students/Posts/Prsesnation/bloc/posts_bloc.dart';
+import 'Features/Students/StudentAccount/data/bloc/users_bloc.dart';
+import 'constant.dart';
+import 'core/Utils/app_router.dart';
+import 'core/cubit/language_cubit.dart';
+import 'core/shared/shared_preferences_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized(); // Wait for initialization

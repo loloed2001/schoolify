@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
-import 'package:myshop/Features/Students/LoginStudent/data/models/auth_models.dart';
+import 'auth_models.dart';
 
 class AuthDataSource {
   Future<Authmodel?> login(String email, String password) async {

@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 import 'package:go_router/go_router.dart';
 import 'package:lottie/lottie.dart';
-import 'package:myshop/Features/Students/HomeStudent/Presentation/Views/HomeStudentPage.dart';
-import 'package:myshop/Features/Students/LoginStudent/Presentation/Views/loginPageStudent.dart';
-import 'package:myshop/constant.dart';
-import 'package:myshop/core/Utils/app_router.dart';
+import '../../../../HomeStudent/Presentation/Views/HomeStudentPage.dart';
+import '../loginPageStudent.dart';
+import '../../../../../../constant.dart';
+import '../../../../../../core/Utils/app_router.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SplashDialog extends StatefulWidget {

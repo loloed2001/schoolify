@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:myshop/core/shared/shared_preferences_service.dart';
+import '../shared/shared_preferences_service.dart';
 
 part 'language_state.dart';
 

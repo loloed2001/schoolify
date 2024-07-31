@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myshop/core/extensions/context_extensions.dart';
+import '../extensions/context_extensions.dart';
 
 class YesNoDialog extends StatelessWidget {
   const YesNoDialog({

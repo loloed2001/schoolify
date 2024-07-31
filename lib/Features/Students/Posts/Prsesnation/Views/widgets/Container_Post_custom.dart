@@ -1,10 +1,10 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:myshop/Features/Students/Posts/Prsesnation/Views/widgets/Image_Post_custom.dart';
-import 'package:myshop/Features/Students/Posts/Prsesnation/Views/widgets/Like_botton_custom.dart';
-import 'package:myshop/Features/Students/Posts/data/model/post_model.dart';
-import 'package:myshop/constant.dart';
+import 'Image_Post_custom.dart';
+import 'Like_botton_custom.dart';
+import '../../../data/model/post_model.dart';
+import '../../../../../../constant.dart';
 
 class ContainerPost extends StatelessWidget {
   ContainerPost({

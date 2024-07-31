@@ -1,7 +1,7 @@
 import 'package:expansion_tile_card/expansion_tile_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:myshop/constant.dart';
+import '../../../../../../constant.dart';
 
 class expansion_tile extends StatelessWidget {
   expansion_tile(

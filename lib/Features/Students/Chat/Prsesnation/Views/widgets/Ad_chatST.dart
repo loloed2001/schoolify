@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:myshop/Features/Students/Posts/Prsesnation/bloc/posts_bloc.dart';
-import 'package:myshop/core/widgets/main_error_widget.dart';
+import '../../../../Posts/Prsesnation/bloc/posts_bloc.dart';
+import '../../../../../../core/widgets/main_error_widget.dart';
 
 import '../../../../../../constant.dart';
 import '../../../../../../core/shared/request_status.dart';

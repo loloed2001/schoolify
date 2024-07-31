@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_gradient_app_bar/flutter_gradient_app_bar.dart';
 import 'package:intl/intl.dart';
+
 import '../../../../../../constant.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 String _getMonthName(int month) {
   switch (month) {
     case 1:
@@ -77,10 +79,10 @@ class _NoteState extends State<Note> {
             },
             icon: Icon(Icons.arrow_back)),
         title: Text(
-                      AppLocalizations.of(context)!.note,
-                      style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-                    ),
-                    centerTitle: true,
+          AppLocalizations.of(context)!.note,
+          style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+        ),
+        centerTitle: true,
       ),
 
       body: SingleChildScrollView(

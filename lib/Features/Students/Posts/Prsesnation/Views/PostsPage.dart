@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:myshop/core/widgets/main_error_widget.dart';
+import '../../../../../core/widgets/main_error_widget.dart';
 
 import '../../../../../constant.dart';
 import '../../../../../core/shared/request_status.dart';

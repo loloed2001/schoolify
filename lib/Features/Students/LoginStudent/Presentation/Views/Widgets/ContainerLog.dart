@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:http/http.dart';
-import 'package:myshop/Features/Students/LoginStudent/Presentation/Views/Widgets/Splash_Dialog.dart';
-import 'package:myshop/Features/Students/LoginStudent/Presentation/Views/Widgets/button_Widget.dart';
-import 'package:myshop/Features/Students/LoginStudent/data/bloc/auth_bloc.dart';
-import 'package:myshop/Features/Students/forget_Password/Prsesnation/Views/forget_passwordPage.dart';
+import 'Splash_Dialog.dart';
+import 'button_Widget.dart';
+import '../../../data/bloc/auth_bloc.dart';
+import '../../../../forget_Password/Prsesnation/Views/forget_passwordPage.dart';
 
-import 'package:myshop/constant.dart';
-import 'package:myshop/core/Utils/app_router.dart';
+import '../../../../../../constant.dart';
+import '../../../../../../core/Utils/app_router.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -128,6 +128,7 @@ class _ContainerCustomLogState extends State<ContainerCustomLog> {
                           if (value == null || value.isEmpty) {
                             return AppLocalizations.of(context)!.errorpassword;
                           }
+                          return null;
                         },
                         textAlign: TextAlign.start,
                         obscureText: _isObscure,
