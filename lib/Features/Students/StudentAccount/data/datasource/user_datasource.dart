@@ -1,7 +1,9 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
+import 'package:myshop/Features/Students/StudentAccount/data/models/dawam_model.dart';
 import 'package:myshop/Features/Students/StudentAccount/data/models/exams_model.dart';
+import 'package:myshop/Features/Students/StudentAccount/data/models/marks_model.dart';
 import 'package:myshop/Features/Students/StudentAccount/data/models/user_models.dart';
 import 'package:myshop/core/unified_api/api_variables.dart';
 import 'package:myshop/core/unified_api/get_api.dart';
@@ -32,15 +34,21 @@ class UserDatasource {
     return await getApi.callRequest();
   }
 
+  Future<List<MarksResponseModel>> getMarks(int id) async {
+    final getApi = GetApi(
+        uri: ApiVariables().getMarks(id), fromJson: marksResponseModelFromJson);
+    return await getApi.callRequest();
+  }
+
   Future<List<UserExamsModel>> getExams(int id) async {
     final getApi = GetApi(
         uri: ApiVariables().getExams(id), fromJson: userExamsModelFromJson);
     return await getApi.callRequest();
   }
 
-  Future<List<UserExamsModel>> getDawam(int id) async {
+  Future<List<UserDawamModel>> getDawam(int id) async {
     final getApi = GetApi(
-        uri: ApiVariables().getDawam(id), fromJson: userExamsModelFromJson);
+        uri: ApiVariables().getDawam(id), fromJson: userDawamModelFromJson);
     return await getApi.callRequest();
   }
 }

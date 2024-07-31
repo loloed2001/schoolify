@@ -1,12 +1,13 @@
 import 'package:go_router/go_router.dart';
 import 'package:myshop/Features/Students/StudentAccount/Presentation/Views/Widgets/about.dart';
+
 import '../../Features/Page_view/Prsesnation/Views/PageBody.dart';
+import '../../Features/Splash/Presentation/Views/SplashPage.dart';
 import '../../Features/Students/Chat/Prsesnation/Views/widgets/Ad_chatST.dart';
 import '../../Features/Students/Chat/Prsesnation/Views/widgets/chat.dart';
 import '../../Features/Students/HomeStudent/Presentation/Views/HomeStudentPage.dart';
 import '../../Features/Students/LoginStudent/Presentation/Views/Widgets/Splash_Dialog.dart';
 import '../../Features/Students/LoginStudent/Presentation/Views/loginPageStudent.dart';
-import '../../Features/Splash/Presentation/Views/SplashPage.dart';
 import '../../Features/Students/Service_student/Prsesnation/Views/widgets/examprog.dart';
 import '../../Features/Students/Service_student/Prsesnation/Views/widgets/inschool.dart';
 import '../../Features/Students/Service_student/Prsesnation/Views/widgets/marks.dart';
@@ -16,7 +17,6 @@ import '../../Features/Students/Service_student/Prsesnation/Views/widgets/weekpr
 import '../../Features/Students/StudentAccount/Presentation/Views/StudenAccountPage.dart';
 import '../../Features/Students/StudentAccount/Presentation/Views/Widgets/Email_change.dart';
 import '../../Features/Students/StudentAccount/Presentation/Views/Widgets/Security.dart';
-
 import '../../Features/Students/StudentAccount/Presentation/Views/Widgets/info.dart';
 import '../../Features/Students/StudentAccount/Presentation/Views/Widgets/langauge.dart';
 import '../../Features/Students/StudentAccount/Presentation/Views/Widgets/pass_change.dart';
@@ -124,7 +124,7 @@ abstract class AppRouter {
     ),
     GoRoute(
       path: kmarkess,
-      builder: (context, state) => const markss(),
+      builder: (context, state) => const MarksScreen(),
     ),
     GoRoute(
       path: klesson,

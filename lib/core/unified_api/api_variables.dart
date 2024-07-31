@@ -26,10 +26,14 @@ class ApiVariables {
   Uri getPosts() => _mainUri(path: 'Posts/GetAllPosts');
   Uri getAdverts() => _mainUri(path: 'Posts/GetAllAdvert');
   Uri getWeeklyProgram(int id) => _mainUri(
-      path: 'WeeklyProggram/GetByStudent', queryParameters: {'studentId': id});
+      path: 'WeeklyProggram/GetByStudent',
+      queryParameters: {'studentId': '$id'});
+  Uri getMarks(int id) => _mainUri(
+      path: 'Marks/GetAllMarksByStudentId',
+      queryParameters: {'studentId': '$id'});
   Uri getExams(int id) => _mainUri(
-      path: 'Exam/GetAllByStudent', queryParameters: {'studentId': id});
+      path: 'Exam/GetAllByStudent', queryParameters: {'studentId': '$id'});
   Uri getDawam(int id) => _mainUri(
       path: 'WeeklyProggram/GetStudentDawam',
-      queryParameters: {'studentId': id});
+      queryParameters: {'studentId': '$id'});
 }
