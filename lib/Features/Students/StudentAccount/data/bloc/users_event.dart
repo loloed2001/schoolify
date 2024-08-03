@@ -54,3 +54,36 @@ class GetAllChilds extends UsersEvent {
     required this.id,
   });
 }
+
+class GetCharts extends UsersEvent {
+  final int id;
+  GetCharts({
+    required this.id,
+  });
+}
+
+class GetRanking extends UsersEvent {
+  final int id;
+  GetRanking({
+    required this.id,
+  });
+}
+
+class GetNotes extends UsersEvent {
+  final int id;
+  GetNotes({
+    required this.id,
+  });
+}
+
+class EditPassword extends UsersEvent {
+  final int id;
+
+  final String password;
+  final String newPassword;
+  EditPassword({
+    required this.id,
+    required this.password,
+    required this.newPassword,
+  });
+}

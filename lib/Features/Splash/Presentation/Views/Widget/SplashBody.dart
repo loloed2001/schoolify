@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import '../../../../Students/LoginStudent/data/bloc/auth_bloc.dart';
-import '../../../../../core/Utils/app_router.dart';
 
+import '../../../../../core/Utils/app_router.dart';
 import '../../../../DialogLogin/Presentation/dialog.dart';
+import '../../../../Students/LoginStudent/data/bloc/auth_bloc.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -32,7 +32,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
           listener: (context, state) {
             if (state is Authsucss) {
               GoRouter.of(context).pushReplacement(AppRouter.KHomeStudentPage);
-            } else {
+            } else if (state is AuthInitial) {
               navigateToHome();
             }
           },

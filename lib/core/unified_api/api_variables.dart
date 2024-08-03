@@ -39,4 +39,13 @@ class ApiVariables {
   Uri getDawam(int id) => _mainUri(
       path: 'WeeklyProggram/GetStudentDawam',
       queryParameters: {'studentId': '$id'});
+  Uri getCharts(int id) => _mainUri(
+      path: 'Marks/GetStudentCharts', queryParameters: {'studentId': '$id'});
+  Uri getRank(int id) => _mainUri(
+      path: 'Marks/GetStudentRank', queryParameters: {'studentId': '$id'});
+  Uri editPassword() => _mainUri(
+        path: 'Students/EditPassword',
+      );
+  Uri getBehaviour(int id) => _mainUri(
+      path: 'Posts/GetAllBehavior', queryParameters: {'studentId': '$id'});
 }

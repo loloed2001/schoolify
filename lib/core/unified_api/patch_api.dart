@@ -36,7 +36,7 @@ class PatchApi<T> with HandlingExceptionRequest {
         if (token != null) "Authorization": 'Bearer $token'
       };
 
-      var request = http.Request('PATCH', uri);
+      var request = http.Request('PUT', uri);
       request.body = jsonEncode(body);
       request.headers.addAll(headers);
       http.StreamedResponse streamedResponse =

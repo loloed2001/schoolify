@@ -1,15 +1,19 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
-import '../models/exams_model.dart';
-import '../models/user_models.dart';
-import '../repo/user_repo.dart';
-import '../../../../../core/shared/shared_preferences_service.dart';
+import 'package:myshop/Features/Students/StudentAccount/data/models/chart_model.dart';
+import 'package:myshop/Features/Students/StudentAccount/data/models/notes_model.dart';
+import 'package:myshop/Features/Students/StudentAccount/data/models/ranking_model.dart';
+import 'package:myshop/core/shared/toaster.dart';
 
 import '../../../../../core/shared/request_status.dart';
+import '../../../../../core/shared/shared_preferences_service.dart';
 import '../models/dawam_model.dart';
+import '../models/exams_model.dart';
 import '../models/marks_model.dart';
+import '../models/user_models.dart';
 import '../models/weekly_program_model.dart';
+import '../repo/user_repo.dart';
 
 part 'users_event.dart';
 part 'users_state.dart';
@@ -74,6 +78,45 @@ class UsersBloc extends Bloc<UsersEvent, UsersState> {
         emit(state.copyWith(dawamStatus: RequestStatus.failed));
       }, (r) {
         emit(state.copyWith(dawamStatus: RequestStatus.success, dawam: r));
+      });
+    });
+    on<GetRanking>((event, emit) async {
+      emit(state.copyWith(ranksStatus: RequestStatus.loading));
+      final result = await UserRepo().getRank(event.id);
+      result.fold((l) {
+        emit(state.copyWith(ranksStatus: RequestStatus.failed));
+      }, (r) {
+        emit(state.copyWith(ranksStatus: RequestStatus.success, ranks: r));
+      });
+    });
+    on<GetCharts>((event, emit) async {
+      emit(state.copyWith(chartsStatus: RequestStatus.loading));
+      final result = await UserRepo().getChart(event.id);
+      result.fold((l) {
+        emit(state.copyWith(chartsStatus: RequestStatus.failed));
+      }, (r) {
+        emit(state.copyWith(chartsStatus: RequestStatus.success, charts: r));
+      });
+    });
+    on<EditPassword>((event, emit) async {
+      Toaster.closeLoading();
+      final result = await UserRepo().editPassword({
+        'id': event.id,
+        'password': event.password,
+        'newPassword': event.newPassword
+      });
+      result.fold((left) {
+        Toaster.showToast(left.message);
+      }, (right) {});
+      Toaster.closeLoading();
+    });
+    on<GetNotes>((event, emit) async {
+      emit(state.copyWith(notesStatus: RequestStatus.loading));
+      final result = await UserRepo().getNotes(event.id);
+      result.fold((l) {
+        emit(state.copyWith(notesStatus: RequestStatus.failed));
+      }, (r) {
+        emit(state.copyWith(notesStatus: RequestStatus.success, notes: r));
       });
     });
     on<GetAllChilds>((event, emit) async {

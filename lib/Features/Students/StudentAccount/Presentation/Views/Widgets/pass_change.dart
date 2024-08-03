@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
-import '../../../../LoginStudent/Presentation/Views/Widgets/button_Widget.dart';
+import 'package:myshop/Features/Students/LoginStudent/data/bloc/auth_bloc.dart';
 
 import '../../../../../../constant.dart';
-import '../../../../../../core/Utils/app_router.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import '../../../../LoginStudent/Presentation/Views/Widgets/button_Widget.dart';
+import '../../../data/bloc/users_bloc.dart';
 
 class PassChange extends StatefulWidget {
   const PassChange({super.key});
@@ -140,6 +142,12 @@ class _PassChangeState extends State<PassChange> {
               child: CustomButon(
                 onTap: () {
                   if (_keyform.currentState!.validate()) {
+                    context.read<UsersBloc>().add(EditPassword(
+                        id: (context.read<AuthBloc>().state as Authsucss)
+                            .auth!
+                            .id!,
+                        password: password!,
+                        newPassword: confirmPassword!));
                     GoRouter.of(context).pop(context);
                   }
                 },
