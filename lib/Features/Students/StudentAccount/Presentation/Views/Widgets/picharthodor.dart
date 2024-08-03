@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
-import '../../../../../../constant.dart';
-import 'package:pie_chart/pie_chart.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:pie_chart/pie_chart.dart';
+
+import '../../../../../../constant.dart';
 
 class picharthodor extends StatelessWidget {
-  picharthodor({Key? key}) : super(key: key);
-
+  picharthodor({
+    Key? key,
+    required this.average,
+  }) : super(key: key);
+  final double average;
   final colorList = <Color>[KPrimeryColor1];
 
   @override
   Widget build(BuildContext context) {
     final dataMap = <String, double>{
-      AppLocalizations.of(context)!.hodorAvrage: 28,
+      AppLocalizations.of(context)!.hodorAvrage: average / 10,
     };
 
     return Container(

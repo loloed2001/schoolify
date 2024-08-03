@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
-import '../../../../../../constant.dart';
-import 'package:pie_chart/pie_chart.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:pie_chart/pie_chart.dart';
+
+import '../../../../../../constant.dart';
 
 class pichart extends StatelessWidget {
-  pichart({Key? key}) : super(key: key);
-
+  pichart({
+    Key? key,
+    required this.average,
+  }) : super(key: key);
+  final double average;
   final colorList = <Color>[
     KPrimeryColor1,
   ];
@@ -13,7 +17,7 @@ class pichart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final dataMap = <String, double>{
-      AppLocalizations.of(context)!.aavrageMonth: 8,
+      AppLocalizations.of(context)!.aavrageMonth: average / 10,
     };
     return Container(
       height: MediaQuery.of(context).size.height * .2,
