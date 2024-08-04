@@ -15,7 +15,7 @@
   "post":"Posts",
   "like":"Like",
   "security":"Security",
-  "schoolinfo":"School information",
+  "schoolinfo":"Student information",
   "addson":"Add son",
   "lang":"Language",
   "logout":"Logout",
@@ -69,6 +69,10 @@
     "lesson":"statistics",
     "about":"About us",
     "forgetpass2":"Are you forget you password ?",
-    "inputEmail2":"Enter the new email, then put the 5-digit code that we will send to the your mail"
-
+    "inputEmail2":"Enter the new email, then put the 5-digit code that we will send to the your mail",
+    "studname":"student name ",
+    "avgmonth":" month average",
+    "ddd":"No Exams For Selected Day",
+     "choseday":" Choose Day",
+    "chosestd":"Choose Student "
 }

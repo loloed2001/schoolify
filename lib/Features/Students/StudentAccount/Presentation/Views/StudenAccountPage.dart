@@ -43,8 +43,8 @@ class StudentAccountView extends StatelessWidget {
                   builder: (context, state) {
                     return (state is Authsucss)
                         ? Text(
-                            (state.auth!.firstName ?? '') +
-                                (state.auth!.lastName ?? ''),
+                            (state.auth!.firstName ?? ' ') +' '+
+                                (state.auth!.lastName ?? ' '),
                             style: TextStyle(
                                 fontFamily: KFont2,
                                 fontSize:

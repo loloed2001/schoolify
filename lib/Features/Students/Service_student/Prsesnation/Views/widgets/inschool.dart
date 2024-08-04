@@ -84,8 +84,16 @@ class _InschoolState extends State<Inschool> {
                         Padding(
                           padding: const EdgeInsets.all(10),
                           child: Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
+                            mainAxisAlignment: MainAxisAlignment.start,
                             children: [
+                              Padding(
+                                padding: const EdgeInsets.only(left: 10),
+                                child: Text(
+                                  AppLocalizations.of(context)!.chosestd,
+                                  style: TextStyle(
+                                      fontFamily: KFont3, fontSize: 20),
+                                ),
+                              ),
                               ValueListenableBuilder(
                                   valueListenable: selectedChild,
                                   builder: (context, value, _) {
@@ -113,14 +121,7 @@ class _InschoolState extends State<Inschool> {
                                               .add(GetExamsEvent(id: item));
                                         });
                                   }),
-                              Padding(
-                                padding: const EdgeInsets.only(left: 10),
-                                child: Text(
-                                  "اختار الطالب",
-                                  style: TextStyle(
-                                      fontFamily: KFont3, fontSize: 20),
-                                ),
-                              ),
+                              
                             ],
                           ),
                         ),

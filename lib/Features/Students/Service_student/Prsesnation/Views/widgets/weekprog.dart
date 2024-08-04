@@ -103,12 +103,67 @@ class _WeekprogState extends State<Weekprog> {
                                 height: 800,
                                 child: Column(
                                   children: [
+                                    if (SharedPreferencesService.getType() == 'Parents')
+                        Padding(
+                          padding: const EdgeInsets.all(10),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                               Padding(
+                                padding: const EdgeInsets.only(left: 10),
+                                child: Text(
+                                  AppLocalizations.of(context)!.chosestd,
+                                  style: TextStyle(
+                                      fontFamily: KFont3, fontSize: 20),
+                                ),
+                              ),
+                              ValueListenableBuilder(
+                                  valueListenable: selectedChild,
+                                  builder: (context, value, _) {
+                                    return DropdownButton<int>(
+                                        dropdownColor: KPrimeryColor2,
+                                        style: TextStyle(
+                                            color: KPrimeryColor1,
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.w600),
+                                        alignment: Alignment.centerRight,
+                                        value: value,
+                                        items: (context.read<AuthBloc>().state
+                                                as Authsucss)
+                                            .childs
+                                            .map((k) {
+                                          return DropdownMenuItem(
+                                            child: Text(k.firstName!),
+                                            value: k.id!,
+                                          );
+                                        }).toList(),
+                                        onChanged: (item) {
+                                          selectedChild.value = item!;
+                                          context
+                                              .read<UsersBloc>()
+                                              .add(GetExamsEvent(id: item));
+                                        });
+                                  }),
+                             
+                            ],
+                          ),
+                        ),
                                     Padding(
                                       padding: const EdgeInsets.all(10),
                                       child: Row(
                                         mainAxisAlignment:
-                                            MainAxisAlignment.end,
+                                            MainAxisAlignment.start,
                                         children: [
+                                           Padding(
+                                            padding:
+                                                const EdgeInsets.only(left: 10),
+                                            child: Text(
+                                               AppLocalizations.of(context)!.choseday,
+                                              style: TextStyle(
+                                                  fontFamily: KFont3,
+                                                  fontSize: 20),
+                                            ),
+                                          ),
                                           DropdownButton<int>(
                                               dropdownColor: KPrimeryColor2,
                                               style: TextStyle(
@@ -129,16 +184,7 @@ class _WeekprogState extends State<Weekprog> {
                                                     FilterProgramEvent(
                                                         id: item));
                                               }),
-                                          Padding(
-                                            padding:
-                                                const EdgeInsets.only(left: 10),
-                                            child: Text(
-                                              "اختار الطالب",
-                                              style: TextStyle(
-                                                  fontFamily: KFont3,
-                                                  fontSize: 20),
-                                            ),
-                                          ),
+                                         
                                         ],
                                       ),
                                     ),

@@ -111,10 +111,11 @@ class _LessonState extends State<Lesson> {
                                     padding: const EdgeInsets.all(16.0),
                                     child: Column(
                                       crossAxisAlignment:
-                                          CrossAxisAlignment.end,
+                                          CrossAxisAlignment.start,
                                       children: [
                                         Text(
-                                          "اسم الطالب" +
+                                          AppLocalizations.of(context)!.studname +' '+
+ 
                                               (state.ranks[index].fullName ??
                                                   ''),
                                           style: TextStyle(
@@ -123,7 +124,7 @@ class _LessonState extends State<Lesson> {
                                           ),
                                         ),
                                         Text(
-                                          " المعدل الشهري" +
+                                         AppLocalizations.of(context)!.avgmonth +" "+
                                               state.ranks[index].average
                                                   .toString(),
                                           style: TextStyle(
