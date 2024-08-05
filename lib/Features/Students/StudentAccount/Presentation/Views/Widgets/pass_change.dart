@@ -17,8 +17,8 @@ class PassChange extends StatefulWidget {
 
 class _PassChangeState extends State<PassChange> {
   final _keyform = GlobalKey<FormState>();
-  String? password;
-  String? confirmPassword;
+  String? oldpassword;
+  String? newPassword;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,7 +57,7 @@ class _PassChangeState extends State<PassChange> {
                       if (value == null || value.isEmpty) {
                         return AppLocalizations.of(context)!.errorchangepass1;
                       }
-                      password = value;
+                      oldpassword = value;
                       return null;
                     },
                     style: TextStyle(
@@ -103,7 +103,7 @@ class _PassChangeState extends State<PassChange> {
                       if (value == null || value.isEmpty) {
                         return AppLocalizations.of(context)!.errorchangepass1;
                       }
-                      confirmPassword = value;
+                      newPassword = value;
                       // if (password != confirmPassword) {
                       //   return AppLocalizations.of(context)!.errorchangepass2;
                       // }
@@ -146,8 +146,8 @@ class _PassChangeState extends State<PassChange> {
                         id: (context.read<AuthBloc>().state as Authsucss)
                             .auth!
                             .id!,
-                        password: password!,
-                        newPassword: confirmPassword!));
+                        password: oldpassword!,
+                        newPassword: newPassword!));
                     GoRouter.of(context).pop(context);
                   }
                 },

@@ -74,5 +74,9 @@
     "avgmonth":" month average",
     "ddd":"No Exams For Selected Day",
      "choseday":" Choose Day",
-    "chosestd":"Choose Student "
+    "chosestd":"Choose Student ",
+    "subject":"supject",
+    "hour":"hour",
+    "classs":"class of ",
+    "type":"type"
 }

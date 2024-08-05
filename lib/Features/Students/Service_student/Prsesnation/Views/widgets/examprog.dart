@@ -218,15 +218,15 @@ class _ExamprogState extends State<Examprog> {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Padding(
-                                          padding: const EdgeInsets.all(5),
+                                          padding: const EdgeInsets.all(10),
                                           child: RichText(
                                             text: TextSpan(
                                               children: [
                                                 TextSpan(
-                                                  text: " المادة" ":",
+                                                  text: AppLocalizations.of(context)!.subject,
                                                   style: TextStyle(
                                                       fontSize: 20,
-                                                      fontFamily: KFont,
+                                                     
                                                       fontWeight:
                                                           FontWeight.bold,
                                                       color: KPrimeryColor1),
@@ -241,7 +241,7 @@ class _ExamprogState extends State<Examprog> {
                                                   text:
                                                       "${state.exams[index].name}",
                                                   style: TextStyle(
-                                                      fontFamily: KFont,
+                                                     
                                                       fontSize: 17,
                                                       color: Color.fromARGB(
                                                           255, 59, 59, 59),
@@ -253,15 +253,15 @@ class _ExamprogState extends State<Examprog> {
                                           ),
                                         ),
                                         Padding(
-                                          padding: const EdgeInsets.all(5.0),
+                                          padding: const EdgeInsets.all(10.0),
                                           child: RichText(
                                             text: TextSpan(
                                               children: [
                                                 TextSpan(
-                                                  text: " الساعة" ":",
+                                                  text: AppLocalizations.of(context)!.hour,
                                                   style: TextStyle(
                                                       fontSize: 20,
-                                                      fontFamily: KFont,
+                                                      
                                                       fontWeight:
                                                           FontWeight.bold,
                                                       color: KPrimeryColor1),
@@ -276,7 +276,7 @@ class _ExamprogState extends State<Examprog> {
                                                   text:
                                                       "${state.exams[index].date?.hour}",
                                                   style: TextStyle(
-                                                      fontFamily: KFont,
+                                                     
                                                       fontSize: 17,
                                                       color: Color.fromARGB(
                                                           255, 59, 59, 59),
@@ -288,15 +288,15 @@ class _ExamprogState extends State<Examprog> {
                                           ),
                                         ),
                                         Padding(
-                                          padding: const EdgeInsets.all(5),
+                                          padding: const EdgeInsets.all(10),
                                           child: RichText(
                                             text: TextSpan(
                                               children: [
                                                 TextSpan(
-                                                  text: " الصف" ":",
+                                                  text: AppLocalizations.of(context)!.classs,
                                                   style: TextStyle(
                                                       fontSize: 20,
-                                                      fontFamily: KFont,
+                                                      
                                                       fontWeight:
                                                           FontWeight.bold,
                                                       color: KPrimeryColor1),
@@ -313,7 +313,7 @@ class _ExamprogState extends State<Examprog> {
                                                       .userExamsModelClass
                                                       ?.name,
                                                   style: TextStyle(
-                                                      fontFamily: KFont,
+                                                      
                                                       fontSize: 17,
                                                       color: Color.fromARGB(
                                                           255, 59, 59, 59),
@@ -325,15 +325,15 @@ class _ExamprogState extends State<Examprog> {
                                           ),
                                         ),
                                         Padding(
-                                          padding: const EdgeInsets.all(1),
+                                          padding: const EdgeInsets.all(10),
                                           child: RichText(
                                             text: TextSpan(
                                               children: [
                                                 TextSpan(
-                                                  text: " نوع الاختبار" ":",
+                                                  text: AppLocalizations.of(context)!.type,
                                                   style: TextStyle(
                                                       fontSize: 20,
-                                                      fontFamily: KFont,
+                                                      
                                                       fontWeight:
                                                           FontWeight.bold,
                                                       color: KPrimeryColor1),
@@ -348,7 +348,7 @@ class _ExamprogState extends State<Examprog> {
                                                   text:
                                                       '${state.exams[index].type}',
                                                   style: TextStyle(
-                                                      fontFamily: KFont,
+                                                      
                                                       fontSize: 17,
                                                       color: Color.fromARGB(
                                                           255, 59, 59, 59),
