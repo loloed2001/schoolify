@@ -104,10 +104,10 @@ class _PassChangeState extends State<PassChange> {
                         return AppLocalizations.of(context)!.errorchangepass1;
                       }
                       confirmPassword = value;
-                      if (password != confirmPassword) {
-                        return AppLocalizations.of(context)!.errorchangepass2;
-                      }
-                      return null;
+                      // if (password != confirmPassword) {
+                      //   return AppLocalizations.of(context)!.errorchangepass2;
+                      // }
+                      // return null;
                     },
                     style: TextStyle(
                         fontSize: MediaQuery.of(context).size.aspectRatio * 40,

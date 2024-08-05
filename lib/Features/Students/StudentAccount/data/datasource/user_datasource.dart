@@ -42,7 +42,7 @@ class UserDatasource {
     final getApi = PatchApi(
         uri: ApiVariables().editPassword(),
         body: body,
-        fromJson: getNotesModelFromJson);
+        fromJson: (s){});
     return await getApi.callRequest();
   }
 
