@@ -74,104 +74,106 @@ class _Info_studentState extends State<Info_student> {
                           letterSpacing:
                               MediaQuery.of(context).size.width * .002)),
                 ),
-                body: ListView.builder(
-                  itemCount: 1,
-                  itemBuilder: (context, index) {
-                    return Column(children: [
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * .04,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          Column(
-                            children: [
-                              Text(
-                                AppLocalizations.of(context)!.name,
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w800,
-                                    color: KPrimeryColor1,
-                                    fontSize: MediaQuery.of(context)
-                                            .size
-                                            .aspectRatio *
-                                        35),
-                              ),
-                              SizedBox(
-                                height:
-                                    MediaQuery.of(context).size.height * .008,
-                              ),
-                              Text(
-                                state.auth!.firstName!,
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.black45,
-                                    fontSize: MediaQuery.of(context)
-                                            .size
-                                            .aspectRatio *
-                                        35),
-                              ),
-                            ],
-                          ),
-                          Column(
-                            children: [
-                              Text(
-                                AppLocalizations.of(context)!.date,
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w800,
-                                    color: KPrimeryColor1,
-                                    fontSize: MediaQuery.of(context)
-                                            .size
-                                            .aspectRatio *
-                                        35),
-                              ),
-                              SizedBox(
-                                height:
-                                    MediaQuery.of(context).size.height * .008,
-                              ),
-                              Text(
-                                DateFormat.yMMMd()
-                                    .format(state.auth!.birtDate!),
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.black45,
-                                    fontSize: MediaQuery.of(context)
-                                            .size
-                                            .aspectRatio *
-                                        35),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * .01,
-                      ),
-                      Divider(
-                        color: KPrimeryColor4,
-                        indent: MediaQuery.of(context).size.height * .05,
-                        endIndent: MediaQuery.of(context).size.height * .05,
-                        thickness:
-                            MediaQuery.of(context).size.aspectRatio * 1.5,
-                      ),
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * .01,
-                      ),
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * .08,
-                      ),
-                      Row(
-                        children: [
-                          pichart(
-                            average: userState.charts?.markAverage ?? 8,
-                          ),
-                          picharthodor(
-                              average: userState.charts?.isPresentPercentage
-                                      ?.toDouble() ??
-                                  28.0)
-                        ],
-                      )
-                    ]);
-                  },
+                body: SingleChildScrollView(
+                  child: ListView.builder(
+                    itemCount: 1,
+                    itemBuilder: (context, index) {
+                      return Column(children: [
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height * .04,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Column(
+                              children: [
+                                Text(
+                                  AppLocalizations.of(context)!.name,
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w800,
+                                      color: KPrimeryColor1,
+                                      fontSize: MediaQuery.of(context)
+                                              .size
+                                              .aspectRatio *
+                                          35),
+                                ),
+                                SizedBox(
+                                  height:
+                                      MediaQuery.of(context).size.height * .008,
+                                ),
+                                Text(
+                                  state.auth!.firstName!,
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.black45,
+                                      fontSize: MediaQuery.of(context)
+                                              .size
+                                              .aspectRatio *
+                                          35),
+                                ),
+                              ],
+                            ),
+                            Column(
+                              children: [
+                                Text(
+                                  AppLocalizations.of(context)!.date,
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w800,
+                                      color: KPrimeryColor1,
+                                      fontSize: MediaQuery.of(context)
+                                              .size
+                                              .aspectRatio *
+                                          35),
+                                ),
+                                SizedBox(
+                                  height:
+                                      MediaQuery.of(context).size.height * .008,
+                                ),
+                                Text(
+                                  DateFormat.yMMMd()
+                                      .format(state.auth!.birtDate!),
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.black45,
+                                      fontSize: MediaQuery.of(context)
+                                              .size
+                                              .aspectRatio *
+                                          35),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height * .01,
+                        ),
+                        Divider(
+                          color: KPrimeryColor4,
+                          indent: MediaQuery.of(context).size.height * .05,
+                          endIndent: MediaQuery.of(context).size.height * .05,
+                          thickness:
+                              MediaQuery.of(context).size.aspectRatio * 1.5,
+                        ),
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height * .01,
+                        ),
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height * .08,
+                        ),
+                        Row(
+                          children: [
+                            pichart(
+                              average: userState.charts?.markAverage ?? 8,
+                            ),
+                            picharthodor(
+                                average: userState.charts?.isPresentPercentage
+                                        ?.toDouble() ??
+                                    28.0)
+                          ],
+                        )
+                      ]);
+                    },
+                  ),
                 ),
               );
             },

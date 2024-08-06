@@ -48,7 +48,7 @@ class expansion_tile extends StatelessWidget {
                   "$text2",
                   style: TextStyle(
                       color: Colors.black54,
-                      fontSize: MediaQuery.of(context).size.aspectRatio * 33,
+                      fontSize: MediaQuery.of(context).size.aspectRatio * 38,
                       fontWeight: FontWeight.w400),
                 )),
           ],
