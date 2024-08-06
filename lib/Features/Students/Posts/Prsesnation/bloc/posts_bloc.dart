@@ -1,9 +1,10 @@
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
+
+import '../../../../../core/shared/request_status.dart';
 import '../../data/model/adverts_model.dart';
 import '../../data/model/post_model.dart';
 import '../../data/repo/posts_repo.dart';
-import '../../../../../core/shared/request_status.dart';
 
 part 'posts_event.dart';
 part 'posts_state.dart';
@@ -23,7 +24,7 @@ class PostsBloc extends Bloc<PostsEvent, PostsState> {
     });
     on<IndexAdvertssEvent>((event, emit) async {
       emit(state.copyWith(advertStatus: RequestStatus.loading));
-      final result = await PostsRepo().indexAdverts();
+      final result = await PostsRepo().indexAdverts(event.id);
       result.fold((l) {
         emit(state.copyWith(advertStatus: RequestStatus.failed));
       }, (r) {
