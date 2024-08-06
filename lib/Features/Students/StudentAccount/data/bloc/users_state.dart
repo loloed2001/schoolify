@@ -16,11 +16,13 @@ class UsersState {
   final RequestStatus notesStatus;
   final GetChartsModel? charts;
   final RequestStatus passwordStatus;
+  final GetStudentInfoResponseModel? userInfo;
 
   UsersState({
     this.passwordStatus = RequestStatus.init,
     this.weeklyProgramStatus = RequestStatus.init,
     this.program = const [],
+    this.userInfo,
     this.examsStatus = RequestStatus.init,
     this.exams = const [],
     this.notes = const [],
@@ -51,6 +53,7 @@ class UsersState {
     RequestStatus? notesStatus,
     GetChartsModel? charts,
     RequestStatus? passwordStatus,
+    GetStudentInfoResponseModel? userInfo,
   }) {
     return UsersState(
       weeklyProgramStatus: weeklyProgramStatus ?? this.weeklyProgramStatus,
@@ -68,6 +71,7 @@ class UsersState {
       notesStatus: notesStatus ?? this.notesStatus,
       charts: charts ?? this.charts,
       passwordStatus: passwordStatus ?? this.passwordStatus,
+      userInfo: userInfo ?? this.userInfo,
     );
   }
 }

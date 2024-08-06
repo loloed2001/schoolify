@@ -94,7 +94,8 @@ class _ExamprogState extends State<Examprog> {
                         padding: const EdgeInsets.all(10),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.start,
-                          children: [Padding(
+                          children: [
+                            Padding(
                               padding: const EdgeInsets.only(left: 10),
                               child: Text(
                                 AppLocalizations.of(context)!.chosestd,
@@ -102,34 +103,36 @@ class _ExamprogState extends State<Examprog> {
                                     TextStyle(fontFamily: KFont3, fontSize: 20),
                               ),
                             ),
-                            ValueListenableBuilder(
-                                valueListenable: selectedChild,
-                                builder: (context, value, _) {
-                                  return DropdownButton<int>(
-                                      dropdownColor: KPrimeryColor2,
-                                      style: TextStyle(
-                                          color: KPrimeryColor1,
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.w600),
-                                      alignment: Alignment.centerRight,
-                                      value: value,
-                                      items: (context.read<AuthBloc>().state
-                                              as Authsucss)
-                                          .childs
-                                          .map((k) {
-                                        return DropdownMenuItem(
-                                          child: Text(k.firstName!),
-                                          value: k.id!,
-                                        );
-                                      }).toList(),
-                                      onChanged: (item) {
-                                        selectedChild.value = item!;
-                                        context
-                                            .read<UsersBloc>()
-                                            .add(GetExamsEvent(id: item));
-                                      });
-                                }),
-                            
+                            BlocBuilder<AuthBloc, AuthState>(
+                              builder: (context, state) {
+                                return ValueListenableBuilder(
+                                    valueListenable: selectedChild,
+                                    builder: (context, value, _) {
+                                      return DropdownButton<int>(
+                                          dropdownColor: KPrimeryColor2,
+                                          style: TextStyle(
+                                              color: KPrimeryColor1,
+                                              fontSize: 20,
+                                              fontWeight: FontWeight.w600),
+                                          alignment: Alignment.centerRight,
+                                          value: value,
+                                          items: (state as Authsucss)
+                                              .childs
+                                              .map((k) {
+                                            return DropdownMenuItem(
+                                              child: Text(k.firstName!),
+                                              value: k.id!,
+                                            );
+                                          }).toList(),
+                                          onChanged: (item) {
+                                            selectedChild.value = item!;
+                                            context
+                                                .read<UsersBloc>()
+                                                .add(GetExamsEvent(id: item));
+                                          });
+                                    });
+                              },
+                            ),
                           ],
                         ),
                       ),
@@ -168,17 +171,18 @@ class _ExamprogState extends State<Examprog> {
                       flex: 1,
                       child: Container(
                         child: DatePicker(
-                          DateTime.now(),
+                          DateTime.utc(
+                              DateTime.now().year, DateTime.now().month - 1, 1),
                           height: 120,
                           width: 80,
                           initialSelectedDate: DateTime.now(),
-                          daysCount: 30,
+                          daysCount: 50,
                           selectionColor: KPrimeryColor1,
                           onDateChange: (_selectedDate) {
                             selectedDate = _selectedDate;
                             context.read<UsersBloc>().add(FilterExamEvent(
                                 id: _selectedDate.day,
-                                month: _selectedDate.microsecond));
+                                month: _selectedDate.month));
                           },
                         ),
                       ),
@@ -223,10 +227,11 @@ class _ExamprogState extends State<Examprog> {
                                             text: TextSpan(
                                               children: [
                                                 TextSpan(
-                                                  text: AppLocalizations.of(context)!.subject,
+                                                  text: AppLocalizations.of(
+                                                          context)!
+                                                      .subject,
                                                   style: TextStyle(
                                                       fontSize: 20,
-                                                     
                                                       fontWeight:
                                                           FontWeight.bold,
                                                       color: KPrimeryColor1),
@@ -241,7 +246,6 @@ class _ExamprogState extends State<Examprog> {
                                                   text:
                                                       "${state.exams[index].name}",
                                                   style: TextStyle(
-                                                     
                                                       fontSize: 17,
                                                       color: Color.fromARGB(
                                                           255, 59, 59, 59),
@@ -258,10 +262,11 @@ class _ExamprogState extends State<Examprog> {
                                             text: TextSpan(
                                               children: [
                                                 TextSpan(
-                                                  text: AppLocalizations.of(context)!.hour,
+                                                  text: AppLocalizations.of(
+                                                          context)!
+                                                      .hour,
                                                   style: TextStyle(
                                                       fontSize: 20,
-                                                      
                                                       fontWeight:
                                                           FontWeight.bold,
                                                       color: KPrimeryColor1),
@@ -276,7 +281,6 @@ class _ExamprogState extends State<Examprog> {
                                                   text:
                                                       "${state.exams[index].date?.hour}",
                                                   style: TextStyle(
-                                                     
                                                       fontSize: 17,
                                                       color: Color.fromARGB(
                                                           255, 59, 59, 59),
@@ -293,10 +297,11 @@ class _ExamprogState extends State<Examprog> {
                                             text: TextSpan(
                                               children: [
                                                 TextSpan(
-                                                  text: AppLocalizations.of(context)!.classs,
+                                                  text: AppLocalizations.of(
+                                                          context)!
+                                                      .classs,
                                                   style: TextStyle(
                                                       fontSize: 20,
-                                                      
                                                       fontWeight:
                                                           FontWeight.bold,
                                                       color: KPrimeryColor1),
@@ -313,7 +318,6 @@ class _ExamprogState extends State<Examprog> {
                                                       .userExamsModelClass
                                                       ?.name,
                                                   style: TextStyle(
-                                                      
                                                       fontSize: 17,
                                                       color: Color.fromARGB(
                                                           255, 59, 59, 59),
@@ -330,10 +334,11 @@ class _ExamprogState extends State<Examprog> {
                                             text: TextSpan(
                                               children: [
                                                 TextSpan(
-                                                  text: AppLocalizations.of(context)!.type,
+                                                  text: AppLocalizations.of(
+                                                          context)!
+                                                      .type,
                                                   style: TextStyle(
                                                       fontSize: 20,
-                                                      
                                                       fontWeight:
                                                           FontWeight.bold,
                                                       color: KPrimeryColor1),
@@ -348,7 +353,6 @@ class _ExamprogState extends State<Examprog> {
                                                   text:
                                                       '${state.exams[index].type}',
                                                   style: TextStyle(
-                                                      
                                                       fontSize: 17,
                                                       color: Color.fromARGB(
                                                           255, 59, 59, 59),

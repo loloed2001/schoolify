@@ -5,6 +5,7 @@ import 'package:myshop/Features/Students/StudentAccount/data/models/chart_model.
 import 'package:myshop/Features/Students/StudentAccount/data/models/notes_model.dart';
 import 'package:myshop/Features/Students/StudentAccount/data/models/ranking_model.dart';
 import 'package:myshop/core/shared/toaster.dart';
+import 'package:myshop/core/unified_api/get_api.dart';
 
 import '../../../../../core/shared/request_status.dart';
 import '../../../../../core/shared/shared_preferences_service.dart';
@@ -92,10 +93,25 @@ class UsersBloc extends Bloc<UsersEvent, UsersState> {
     on<GetCharts>((event, emit) async {
       emit(state.copyWith(chartsStatus: RequestStatus.loading));
       final result = await UserRepo().getChart(event.id);
+      final result1 = await GetApi<List<GetStudentInfoResponseModel>>(
+              uri: Uri(
+                  scheme: 'http',
+                  host: 'www.marahschool.somee.com',
+                  path: '/api/Students/GetAllStudentById',
+                  queryParameters: {'StudentId': event.id.toString()}),
+              fromJson: getStudentInfoResponseModelFromJson)
+          .callRequest();
+      print(result1.length);
       result.fold((l) {
         emit(state.copyWith(chartsStatus: RequestStatus.failed));
       }, (r) {
-        emit(state.copyWith(chartsStatus: RequestStatus.success, charts: r));
+        if (result1.isNotEmpty) {
+          emit(state.copyWith(
+              chartsStatus: RequestStatus.success,
+              charts: r,
+              userInfo: result1.firstOrNull));
+        } else
+          emit(state.copyWith(chartsStatus: RequestStatus.success, charts: r));
       });
     });
     on<EditPassword>((event, emit) async {

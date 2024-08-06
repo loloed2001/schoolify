@@ -107,145 +107,204 @@ class _NoteState extends State<Note> {
         centerTitle: true,
       ),
 
-      body: BlocBuilder<UsersBloc, UsersState>(
-        builder: (context, state) {
-          return state.notesStatus == RequestStatus.success
-              ? state.notes.isEmpty
-                  ? Center(
-                      child: Text('There Is No Notes Now'),
-                    )
-                  : ListView.builder(
-                      itemCount: state.notes.length,
-                      itemBuilder: (context, index) => Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Container(
-                          decoration: BoxDecoration(
-                            boxShadow: [
-                              BoxShadow(
-                                  blurRadius: 6,
-                                  color: Colors.grey.withOpacity(0.5),
-                                  offset: Offset(8, 3))
-                            ],
-                            borderRadius: BorderRadius.circular(18),
-                            border: Border.all(color: KPrimeryColor1, width: 2),
-                            color: KPrimeryColor2,
-                          ),
-                          height: MediaQuery.of(context).size.height * .2,
-                          width: MediaQuery.of(context).size.width * .95,
-                          child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.end,
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.all(5),
-                                  child: RichText(
-                                    text: TextSpan(
-                                      children: [
-                                        TextSpan(
-                                          text: " اسم المشرف" ":",
-                                          style: TextStyle(
-                                              fontSize: 20,
-                                              fontFamily: KFont,
-                                              fontWeight: FontWeight.bold,
-                                              color: KPrimeryColor1),
-                                        ),
-                                        TextSpan(
-                                          text: "   ",
-                                          style: TextStyle(
-                                              fontSize: 20,
-                                              color: Colors.black),
-                                        ),
-                                        TextSpan(
-                                          text: state.notes[index].supervisor
-                                              ?.firstName,
-                                          style: TextStyle(
-                                              fontFamily: KFont,
-                                              fontSize: 17,
-                                              color: Color.fromARGB(
-                                                  255, 59, 59, 59),
-                                              fontWeight: FontWeight.w600),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
+      body: Column(
+        children: [
+          if (SharedPreferencesService.getType() == 'Parents')
+            Padding(
+              padding: const EdgeInsets.all(10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 10),
+                    child: Text(
+                      AppLocalizations.of(context)!.chosestd,
+                      style: TextStyle(fontFamily: KFont3, fontSize: 20),
+                    ),
+                  ),
+                  BlocBuilder<AuthBloc, AuthState>(
+                    builder: (context, state) {
+                      return ValueListenableBuilder(
+                          valueListenable: selectedChild,
+                          builder: (context, value, _) {
+                            return DropdownButton<int>(
+                                dropdownColor: KPrimeryColor2,
+                                style: TextStyle(
+                                    color: KPrimeryColor1,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w600),
+                                alignment: Alignment.centerRight,
+                                value: value,
+                                items: (state as Authsucss).childs.map((k) {
+                                  return DropdownMenuItem(
+                                    child: Text(k.firstName!),
+                                    value: k.id!,
+                                  );
+                                }).toList(),
+                                onChanged: (item) {
+                                  selectedChild.value = item!;
+                                  context
+                                      .read<UsersBloc>()
+                                      .add(GetNotes(id: item));
+                                });
+                          });
+                    },
+                  ),
+                ],
+              ),
+            ),
+          Expanded(
+            child: BlocBuilder<UsersBloc, UsersState>(
+              builder: (context, state) {
+                return state.notesStatus == RequestStatus.success
+                    ? state.notes.isEmpty
+                        ? Center(
+                            child: Text('There Is No Notes Now'),
+                          )
+                        : ListView.builder(
+                            itemCount: state.notes.length,
+                            itemBuilder: (context, index) => Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  boxShadow: [
+                                    BoxShadow(
+                                        blurRadius: 6,
+                                        color: Colors.grey.withOpacity(0.5),
+                                        offset: Offset(8, 3))
+                                  ],
+                                  borderRadius: BorderRadius.circular(18),
+                                  border: Border.all(
+                                      color: KPrimeryColor1, width: 2),
+                                  color: KPrimeryColor2,
                                 ),
-                                Padding(
-                                  padding: const EdgeInsets.all(5.0),
-                                  child: RichText(
-                                    text: TextSpan(
-                                      children: [
-                                        TextSpan(
-                                          text: DateFormat.yMMMd().format(
-                                              state.notes[index].createDate ??
-                                                  DateTime.now()),
-                                          style: TextStyle(
-                                              fontFamily: KFont2,
-                                              fontSize: 17,
-                                              color: Color.fromARGB(
-                                                  255, 59, 59, 59),
-                                              fontWeight: FontWeight.w600),
+                                height: MediaQuery.of(context).size.height * .2,
+                                width: MediaQuery.of(context).size.width * .95,
+                                child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.end,
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.all(5),
+                                        child: RichText(
+                                          text: TextSpan(
+                                            children: [
+                                              TextSpan(
+                                                text: " اسم المشرف" ":",
+                                                style: TextStyle(
+                                                    fontSize: 20,
+                                                    fontFamily: KFont,
+                                                    fontWeight: FontWeight.bold,
+                                                    color: KPrimeryColor1),
+                                              ),
+                                              TextSpan(
+                                                text: "   ",
+                                                style: TextStyle(
+                                                    fontSize: 20,
+                                                    color: Colors.black),
+                                              ),
+                                              TextSpan(
+                                                text: state.notes[index]
+                                                    .supervisor?.firstName,
+                                                style: TextStyle(
+                                                    fontFamily: KFont,
+                                                    fontSize: 17,
+                                                    color: Color.fromARGB(
+                                                        255, 59, 59, 59),
+                                                    fontWeight:
+                                                        FontWeight.w600),
+                                              ),
+                                            ],
+                                          ),
                                         ),
-                                        TextSpan(
-                                          text: "   ",
-                                          style: TextStyle(
-                                              fontSize: 20,
-                                              color: Colors.black),
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.all(5.0),
+                                        child: RichText(
+                                          text: TextSpan(
+                                            children: [
+                                              TextSpan(
+                                                text: DateFormat.yMMMd().format(
+                                                    state.notes[index]
+                                                            .createDate ??
+                                                        DateTime.now()),
+                                                style: TextStyle(
+                                                    fontFamily: KFont2,
+                                                    fontSize: 17,
+                                                    color: Color.fromARGB(
+                                                        255, 59, 59, 59),
+                                                    fontWeight:
+                                                        FontWeight.w600),
+                                              ),
+                                              TextSpan(
+                                                text: "   ",
+                                                style: TextStyle(
+                                                    fontSize: 20,
+                                                    color: Colors.black),
+                                              ),
+                                              TextSpan(
+                                                text: " التاريخ" "",
+                                                style: TextStyle(
+                                                    fontSize: 20,
+                                                    fontFamily: KFont,
+                                                    fontWeight: FontWeight.bold,
+                                                    color: KPrimeryColor1),
+                                              ),
+                                            ],
+                                          ),
                                         ),
-                                        TextSpan(
-                                          text: " التاريخ" "",
-                                          style: TextStyle(
-                                              fontSize: 20,
-                                              fontFamily: KFont,
-                                              fontWeight: FontWeight.bold,
-                                              color: KPrimeryColor1),
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.all(5),
+                                        child: RichText(
+                                          text: TextSpan(
+                                            children: [
+                                              TextSpan(
+                                                text: " المتابعة" ":",
+                                                style: TextStyle(
+                                                    fontSize: 20,
+                                                    fontFamily: KFont,
+                                                    fontWeight: FontWeight.bold,
+                                                    color: KPrimeryColor1),
+                                              ),
+                                              TextSpan(
+                                                text: "   ",
+                                                style: TextStyle(
+                                                    fontSize: 20,
+                                                    color: Colors.black),
+                                              ),
+                                              TextSpan(
+                                                text: state.notes[index]
+                                                        .description ??
+                                                    '',
+                                                style: TextStyle(
+                                                    fontFamily: KFont,
+                                                    fontSize: 17,
+                                                    color: Color.fromARGB(
+                                                        255, 59, 59, 59),
+                                                    fontWeight:
+                                                        FontWeight.w600),
+                                              ),
+                                            ],
+                                          ),
                                         ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.all(5),
-                                  child: RichText(
-                                    text: TextSpan(
-                                      children: [
-                                        TextSpan(
-                                          text: " المتابعة" ":",
-                                          style: TextStyle(
-                                              fontSize: 20,
-                                              fontFamily: KFont,
-                                              fontWeight: FontWeight.bold,
-                                              color: KPrimeryColor1),
-                                        ),
-                                        TextSpan(
-                                          text: "   ",
-                                          style: TextStyle(
-                                              fontSize: 20,
-                                              color: Colors.black),
-                                        ),
-                                        TextSpan(
-                                          text:
-                                              state.notes[index].description ??
-                                                  '',
-                                          style: TextStyle(
-                                              fontFamily: KFont,
-                                              fontSize: 17,
-                                              color: Color.fromARGB(
-                                                  255, 59, 59, 59),
-                                              fontWeight: FontWeight.w600),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ]),
-                        ),
-                      ),
-                    )
-              : state.notesStatus == RequestStatus.failed
-                  ? Center(child: MainErrorWidget(onPressed: () {}))
-                  : Center(
-                      child: CircularProgressIndicator(),
-                    );
-        },
+                                      ),
+                                    ]),
+                              ),
+                            ),
+                          )
+                    : state.notesStatus == RequestStatus.failed
+                        ? Center(child: MainErrorWidget(onPressed: () {
+                            context
+                                .read<UsersBloc>()
+                                .add(GetNotes(id: selectedChild.value ?? 1));
+                          }))
+                        : Center(
+                            child: CircularProgressIndicator(),
+                          );
+              },
+            ),
+          ),
+        ],
       ),
       // body: SingleChildScrollView(
       //   scrollDirection: Axis.vertical,

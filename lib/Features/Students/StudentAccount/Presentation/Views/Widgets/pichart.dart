@@ -9,7 +9,7 @@ class pichart extends StatelessWidget {
     Key? key,
     required this.average,
   }) : super(key: key);
-  final double average;
+  final num average;
   final colorList = <Color>[
     KPrimeryColor1,
   ];

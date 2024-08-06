@@ -1,4 +1,8 @@
+import 'dart:convert';
 import 'dart:developer';
+
+import 'package:myshop/Features/Students/StudentAccount/data/models/user_models.dart';
+import 'package:myshop/core/shared/shared_preferences_service.dart';
 
 class ApiVariables {
   /////////////
@@ -24,7 +28,16 @@ class ApiVariables {
 
   Uri getClasses() => _mainUri(path: 'Classes/GetAll');
   Uri getPosts() => _mainUri(path: 'Posts/GetAllPosts');
-  Uri getAdverts() => _mainUri(path: 'Posts/GetAllAdvert');
+  Uri getAdverts() => _mainUri(path: 'Posts/GetAllAdvert', queryParameters: {
+        'sectionId': SharedPreferencesService.getType() == 'Parents'
+            ? userModelFromJson(SharedPreferencesService.getChilds() ?? '[]')
+                    .firstOrNull
+                    ?.id ??
+                ''
+            : UserModel.fromJson(
+                    jsonDecode(SharedPreferencesService.getUser()!))
+                .id!
+      });
   Uri getUsers(int id) => _mainUri(
       path: 'Students/GetAllStudentsByParentId',
       queryParameters: {'parentId': '$id'});
