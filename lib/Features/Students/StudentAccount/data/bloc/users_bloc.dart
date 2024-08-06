@@ -43,10 +43,8 @@ class UsersBloc extends Bloc<UsersEvent, UsersState> {
       result.fold((l) {
         emit(state.copyWith(marksStatus: RequestStatus.failed));
       }, (r) {
-        marks = r;
-
         emit(
-          state.copyWith(marks: marks, marksStatus: RequestStatus.success),
+          state.copyWith(marks: r, marksStatus: RequestStatus.success),
         );
       });
     });

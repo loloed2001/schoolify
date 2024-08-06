@@ -139,7 +139,7 @@ class Page3 extends StatelessWidget {
                     AppLocalizations.of(context)!.getstart,
                   ),
                   onPressed: () {
-                    GoRouter.of(context).push(AppRouter.KSplashPage);
+                    GoRouter.of(context).go(AppRouter.KSplashPage);
                   },
                   style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(

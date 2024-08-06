@@ -31,7 +31,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
         body: BlocListener<AuthBloc, AuthState>(
           listener: (context, state) {
             if (state is Authsucss) {
-              GoRouter.of(context).pushReplacement(AppRouter.KHomeStudentPage);
+              GoRouter.of(context).go(AppRouter.KHomeStudentPage);
             } else if (state is AuthInitial) {
               navigateToHome();
             }

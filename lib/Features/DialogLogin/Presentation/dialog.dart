@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
-import '../../../core/shared/shared_preferences_service.dart';
 
 import '../../../constant.dart';
 import '../../../core/Utils/app_router.dart';
+import '../../../core/shared/shared_preferences_service.dart';
 import 'Widget/CircleImage.dart';
 
 class DialogCustom extends StatelessWidget {
@@ -71,7 +71,7 @@ class DialogCustom extends StatelessWidget {
                     CircleImageCustom(
                       ontap: () {
                         SharedPreferencesService.storeType('Parents');
-                        GoRouter.of(context).push(AppRouter.KStudentLoginPage);
+                        GoRouter.of(context).go(AppRouter.KStudentLoginPage);
                       },
                       image: AssetImage('assets/images/family.png'),
                     ),

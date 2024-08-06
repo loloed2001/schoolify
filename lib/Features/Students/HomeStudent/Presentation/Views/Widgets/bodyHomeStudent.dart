@@ -4,11 +4,11 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:line_icons/line_icons.dart';
-import '../../../../LoginStudent/data/bloc/auth_bloc.dart';
-import '../../../../../../core/shared/shared_preferences_service.dart';
 
 import '../../../../../../constant.dart';
+import '../../../../../../core/shared/shared_preferences_service.dart';
 import '../../../../Chat/Prsesnation/Views/ChatPage.dart';
+import '../../../../LoginStudent/data/bloc/auth_bloc.dart';
 import '../../../../Posts/Prsesnation/Views/PostsPage.dart';
 import '../../../../Service_student/Prsesnation/Views/Homepage.dart';
 import '../../../../StudentAccount/Presentation/Views/StudenAccountPage.dart';
@@ -27,6 +27,7 @@ class _BodyStudentState extends State<BodyStudent> {
     if (SharedPreferencesService.getType() == 'Parents') {
       context.read<UsersBloc>().add(GetAllChilds(
           id: (context.read<AuthBloc>().state as Authsucss).auth!.id!));
+      context.read<AuthBloc>().add(CheckAuthEvent());
     }
     super.initState();
   }
@@ -68,6 +69,7 @@ class _BodyStudentState extends State<BodyStudent> {
               setState(() {
                 selectedindex = val;
               });
+              context.read<AuthBloc>().add(CheckAuthEvent());
             },
             selectedIndex: selectedindex,
             hoverColor: KPrimeryColor5,

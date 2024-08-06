@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
 import 'package:lottie/lottie.dart';
-import '../../../../HomeStudent/Presentation/Views/HomeStudentPage.dart';
-import '../loginPageStudent.dart';
+import 'package:myshop/core/Utils/app_router.dart';
+
 import '../../../../../../constant.dart';
-import '../../../../../../core/Utils/app_router.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SplashDialog extends StatefulWidget {
   const SplashDialog({super.key});
@@ -24,7 +22,6 @@ class _SplashViewBodyState extends State<SplashDialog>
   void initState() {
     super.initState();
     initSlidAnimation();
-    NavigateToHome();
   }
 
   @override
@@ -67,13 +64,9 @@ class _SplashViewBodyState extends State<SplashDialog>
     SlidingAnimation =
         Tween<Offset>(begin: const Offset(0, 30), end: Offset.zero)
             .animate(animationController);
-    animationController.forward();
-  }
-
-  void NavigateToHome() {
-    Future.delayed(const Duration(seconds: 4), () {
-      Navigator.of(context)
-          .push(MaterialPageRoute(builder: (context) => HomeStudentview()));
+    animationController.forward().then((v) {
+      Navigator.pop(context);
+      GoRouter.of(context).go(AppRouter.KHomeStudentPage);
     });
   }
 }

@@ -1,8 +1,9 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:go_router/go_router.dart';
+
 import '../../../../../constant.dart';
 import '../../../../../core/Utils/app_router.dart';
 
@@ -34,7 +35,7 @@ class Page2 extends StatelessWidget {
               right: MediaQuery.of(context).size.width * .83,
               child: TextButton(
                 onPressed: () {
-                  GoRouter.of(context).push(AppRouter.KSplashPage);
+                  GoRouter.of(context).go(AppRouter.KSplashPage);
                 },
                 child: Text(
                   AppLocalizations.of(context)!.skip,

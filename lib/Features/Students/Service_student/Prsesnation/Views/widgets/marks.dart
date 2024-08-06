@@ -113,7 +113,7 @@ class _MarksScreenState extends State<MarksScreen> {
                                 Padding(
                                   padding: const EdgeInsets.only(left: 10),
                                   child: Text(
-                                      AppLocalizations.of(context)!.chosestd,
+                                    AppLocalizations.of(context)!.chosestd,
                                     style: TextStyle(
                                         fontFamily: KFont3, fontSize: 20),
                                   ),
@@ -142,10 +142,9 @@ class _MarksScreenState extends State<MarksScreen> {
                                             selectedChild.value = item!;
                                             context
                                                 .read<UsersBloc>()
-                                                .add(GetExamsEvent(id: item));
+                                                .add(GetMarksEvent(id: item));
                                           });
                                     }),
-                                
                               ],
                             ),
                           ),
