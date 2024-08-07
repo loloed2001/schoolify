@@ -27,7 +27,6 @@ class _AdChatState extends State<AdChat> {
           (context.read<AuthBloc>().state as Authsucss)
                   .childs
                   .firstOrNull
-                  ?.section
                   ?.id ??
               1);
       context.read<PostsBloc>().add(
@@ -107,7 +106,7 @@ class _AdChatState extends State<AdChat> {
                                         child: Text(k.firstName! +
                                             '-' +
                                             k.section!.name!),
-                                        value: k.section!.id!,
+                                        value: k.id!,
                                       );
                                     }).toList(),
                                     onChanged: (item) {

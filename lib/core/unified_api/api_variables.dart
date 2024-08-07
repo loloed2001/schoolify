@@ -25,7 +25,7 @@ class ApiVariables {
   Uri getClasses() => _mainUri(path: 'Classes/GetAll');
   Uri getPosts() => _mainUri(path: 'Posts/GetAllPosts');
   Uri getAdverts(String id) =>
-      _mainUri(path: 'Posts/GetAllAdvert', queryParameters: {'sectionId': id});
+      _mainUri(path: 'Posts/GetAllAdvert', queryParameters: {'studentId': id});
   Uri getUsers(int id) => _mainUri(
       path: 'Students/GetAllStudentsByParentId',
       queryParameters: {'parentId': '$id'});
