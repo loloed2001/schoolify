@@ -25,13 +25,10 @@ class _Info_studentState extends State<Info_student> {
   @override
   void initState() {
     super.initState();
+    selectedChild = ValueNotifier(
+        (context.read<AuthBloc>().state as Authsucss).childs.firstOrNull?.id ??
+            1);
     if (SharedPreferencesService.getType() == 'Parents') {
-      selectedChild = ValueNotifier(
-          (context.read<AuthBloc>().state as Authsucss)
-                  .childs
-                  .firstOrNull
-                  ?.id ??
-              1);
       context.read<UsersBloc>().add(
             GetCharts(
               id: (context.read<AuthBloc>().state as Authsucss)

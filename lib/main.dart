@@ -73,6 +73,7 @@ class _SchoolAppState extends State<SchoolApp> {
               GlobalWidgetsLocalizations.delegate,
               GlobalCupertinoLocalizations.delegate,
             ],
+            
             supportedLocales: [
               Locale('en'), // English
               Locale('ar'),
